@@ -13,6 +13,7 @@
 		ABF935302689E25A00A3F933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Main.storyboard */; };
 		ABF935322689E25B00A3F933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF935312689E25B00A3F933 /* Assets.xcassets */; };
 		ABF935352689E25B00A3F933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF935332689E25B00A3F933 /* LaunchScreen.storyboard */; };
+		ABF9353D2689E2F900A3F933 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9353C2689E2F900A3F933 /* ThemeColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ABF935312689E25B00A3F933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABF935342689E25B00A3F933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF935362689E25B00A3F933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF9353C2689E2F900A3F933 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */,
 				ABF9352C2689E25A00A3F933 /* ViewController.swift */,
 				ABF9352E2689E25A00A3F933 /* Main.storyboard */,
+				ABF9353C2689E2F900A3F933 /* ThemeColor.swift */,
 				ABF935312689E25B00A3F933 /* Assets.xcassets */,
 				ABF935332689E25B00A3F933 /* LaunchScreen.storyboard */,
 				ABF935362689E25B00A3F933 /* Info.plist */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF9352D2689E25A00A3F933 /* ViewController.swift in Sources */,
+				ABF9353D2689E2F900A3F933 /* ThemeColor.swift in Sources */,
 				ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */,
 				ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */,
 			);
