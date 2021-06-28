@@ -10,15 +10,15 @@ import UIKit
 struct Section {
     var title: String
     var expanded: Bool
-    static let data = [Section(title: "このアプリを評価", expanded: false),
+    static let data = [Section(title: "A", expanded: false),
                        Section(title: "テーマカラー", expanded: false),
-                       Section(title: "パスコード", expanded: false),
-                       Section(title: "言語を選択", expanded: false)]
+                       Section(title: "B", expanded: false),
+                       Section(title: "C", expanded: false)]
 }
 
 struct Row {
     let title: String
-    static let data = [Row(title: "セルフカスタム"),
+    static let data = [Row(title: "セルフ"),
                        Row(title: "オススメ")]
 }
 
@@ -81,7 +81,14 @@ extension SettingViewController: UITableViewDataSource {
         if sections[section].title == "テーマカラー"  {
             return rows.count
         }
-        return 0
+        switch sections[section].title {
+            case "テーマカラー":
+                return rows.count
+            case "A", "B", "C":
+                return 0
+            default:
+                fatalError("予期せぬタイトルがあります。")
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,12 +102,12 @@ extension SettingViewController: UITableViewDataSource {
         let row = rows[indexPath.row]
         cell.configure(row: row) { [weak self] in
             switch self?.rows[indexPath.row].title {
-                case "セルフカスタム":
-                    print("セルフカスタム")
+                case "セルフ":
+                    print("セルフ")
                 case "オススメ":
-                    print("おすすめ")
+                    print("オススメ")
                 default:
-                    fatalError()
+                    fatalError("予期せぬタイトルがあります。")
             }
         }
         return cell
