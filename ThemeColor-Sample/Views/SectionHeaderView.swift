@@ -7,14 +7,31 @@
 
 import UIKit
 
-class SectionHeaderView: UITableViewHeaderFooterView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class SectionHeaderView: UITableViewHeaderFooterView {
+    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var view: UIView!
+    
+    static var identifier: String { String(describing: self) }
+    static var nib: UINib { UINib(nibName: String(describing: self), bundle: nil) }
+    var onTapEvent: (() -> Void)?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(didTapped))
+        self.view.addGestureRecognizer(tapGR)
+        
     }
-    */
-
+    
+    @objc private func didTapped() {
+        onTapEvent?()
+    }
+    
+    func configure(section: Section, onTapEvent: @escaping () -> Void) {
+        self.onTapEvent = onTapEvent
+        titleLabel.text = section.title
+    }
+    
+    
 }
