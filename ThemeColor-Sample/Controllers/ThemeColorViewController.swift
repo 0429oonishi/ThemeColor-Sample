@@ -9,6 +9,8 @@ import UIKit
 
 final class ThemeColorViewController: UIViewController {
     
+    @IBOutlet private weak var containerView: UIView!
+    
     private static var identifier: String { String(describing: self) }
     private var navTitle = ""
         
@@ -16,7 +18,6 @@ final class ThemeColorViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = navTitle
-        self.view.backgroundColor = .red
         
     }
     
@@ -29,7 +30,6 @@ final class ThemeColorViewController: UIViewController {
         ) as! ThemeColorViewController
         themeColorVC.navTitle = navTitle
         return themeColorVC
-        
     }
     
 }
