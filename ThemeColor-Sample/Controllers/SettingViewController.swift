@@ -103,9 +103,11 @@ extension SettingViewController: UITableViewDataSource {
         cell.configure(row: row) { [weak self] in
             switch self?.rows[indexPath.row].title {
                 case "セルフ":
-                    print("セルフ")
+                    let themeColorVC = ThemeColorViewController.instantiate()
+                    self?.navigationController?.pushViewController(themeColorVC, animated: true)
                 case "オススメ":
-                    print("オススメ")
+                    let colorConceptVC = ColorConceptViewController.instantiate()
+                    self?.navigationController?.pushViewController(colorConceptVC, animated: true)
                 default:
                     fatalError("予期せぬタイトルがあります。")
             }
