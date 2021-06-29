@@ -103,7 +103,7 @@ extension SettingViewController: UITableViewDataSource {
         cell.configure(row: row) { [weak self] in
             switch self?.rows[indexPath.row].title {
                 case "セルフ":
-                    let themeColorVC = ThemeColorViewController.instantiate()
+                    let themeColorVC = ThemeColorViewController.instantiate(navTitle: "セルフ")
                     self?.navigationController?.pushViewController(themeColorVC, animated: true)
                 case "オススメ":
                     let colorConceptVC = ColorConceptViewController.instantiate()

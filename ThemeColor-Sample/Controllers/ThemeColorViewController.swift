@@ -10,19 +10,23 @@ import UIKit
 final class ThemeColorViewController: UIViewController {
     
     private static var identifier: String { String(describing: self) }
-    
+    private var navTitle = ""
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = navTitle
+        
     }
     
-    static func instantiate() -> ThemeColorViewController {
+    static func instantiate(navTitle: String) -> ThemeColorViewController {
         let themeColorVC = UIStoryboard(
             name: "ThemeColor",
             bundle: nil
         ).instantiateViewController(
             withIdentifier: ThemeColorViewController.identifier
         ) as! ThemeColorViewController
+        themeColorVC.navTitle = navTitle
         return themeColorVC
         
     }
