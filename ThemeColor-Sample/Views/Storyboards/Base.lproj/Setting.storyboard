@@ -41,36 +41,6 @@
             </objects>
             <point key="canvasLocation" x="1030" y="124"/>
         </scene>
-        <!--Color Concept View Controller-->
-        <scene sceneID="vKE-gp-ymr">
-            <objects>
-                <viewController id="Yel-Pm-vvX" customClass="ColorConceptViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="I37-0R-tdd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Fym-IQ-pZJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ExY-4i-C8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1742.0289855072465" y="123.88392857142857"/>
-        </scene>
-        <!--Theme Color View Controller-->
-        <scene sceneID="vi1-2k-TFW">
-            <objects>
-                <viewController id="uaL-Od-r9W" customClass="ThemeColorViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bYR-tg-zIY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZDl-Ek-LAL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yjj-UU-RwK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2463.768115942029" y="123.88392857142857"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="76L-RA-6pA">
             <objects>
