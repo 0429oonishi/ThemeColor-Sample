@@ -11,6 +11,9 @@
 		AB526CD3268B5D7900DEC581 /* ThemeColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB526CD2268B5D7900DEC581 /* ThemeColor.storyboard */; };
 		AB526CD6268B63B100DEC581 /* ColorConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CD4268B63B100DEC581 /* ColorConceptTableViewCell.swift */; };
 		AB526CD7268B63B100DEC581 /* ColorConceptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB526CD5268B63B100DEC581 /* ColorConceptTableViewCell.xib */; };
+		AB526CD9268B842500DEC581 /* ColorChoicesConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CD8268B842500DEC581 /* ColorChoicesConceptViewController.swift */; };
+		AB526CDB268B847D00DEC581 /* ColorChoicesTileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CDA268B847D00DEC581 /* ColorChoicesTileViewController.swift */; };
+		AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */; };
 		ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF935282689E25A00A3F933 /* AppDelegate.swift */; };
 		ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */; };
 		ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Setting.storyboard */; };
@@ -33,6 +36,9 @@
 		AB526CD2268B5D7900DEC581 /* ThemeColor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemeColor.storyboard; sourceTree = "<group>"; };
 		AB526CD4268B63B100DEC581 /* ColorConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConceptTableViewCell.swift; sourceTree = "<group>"; };
 		AB526CD5268B63B100DEC581 /* ColorConceptTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorConceptTableViewCell.xib; sourceTree = "<group>"; };
+		AB526CD8268B842500DEC581 /* ColorChoicesConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesConceptViewController.swift; sourceTree = "<group>"; };
+		AB526CDA268B847D00DEC581 /* ColorChoicesTileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesTileViewController.swift; sourceTree = "<group>"; };
+		AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesSliderViewController.swift; sourceTree = "<group>"; };
 		ABF935252689E25A00A3F933 /* ThemeColor-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ThemeColor-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF935282689E25A00A3F933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 				ABF93546268A01E700A3F933 /* SettingViewController.swift */,
 				ABF9354A268A02C000A3F933 /* ColorConceptViewController.swift */,
 				ABF93548268A021400A3F933 /* ThemeColorViewController.swift */,
+				AB526CD8268B842500DEC581 /* ColorChoicesConceptViewController.swift */,
+				AB526CDA268B847D00DEC581 /* ColorChoicesTileViewController.swift */,
+				AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,10 +232,13 @@
 			files = (
 				ABF9354B268A02C000A3F933 /* ColorConceptViewController.swift in Sources */,
 				ABF9353D2689E2F900A3F933 /* ThemeColor.swift in Sources */,
+				AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */,
+				AB526CD9268B842500DEC581 /* ColorChoicesConceptViewController.swift in Sources */,
 				ABF93549268A021400A3F933 /* ThemeColorViewController.swift in Sources */,
 				ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */,
 				ABF9354D268A06EC00A3F933 /* SectionHeaderView.swift in Sources */,
 				ABF935412689E35500A3F933 /* UIColor+Extension.swift in Sources */,
+				AB526CDB268B847D00DEC581 /* ColorChoicesTileViewController.swift in Sources */,
 				ABF93552268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift in Sources */,
 				AB526CD6268B63B100DEC581 /* ColorConceptTableViewCell.swift in Sources */,
 				ABF9353F2689E32A00A3F933 /* ColorConcept.swift in Sources */,

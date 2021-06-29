@@ -9,8 +9,12 @@ import UIKit
 
 final class ThemeColorViewController: UIViewController {
     
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var containerView: UIView!
-    
+    @IBOutlet private weak var colorChoicesConceptContainerView: UIView!
+    @IBOutlet private weak var colorChoicesTileContainerView: UIView!
+    @IBOutlet private weak var colorChoicesSliderContainerView: UIView!
+
     private static var identifier: String { String(describing: self) }
     private var navTitle = ""
         

@@ -48,10 +48,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="41"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9lA-YX-AM8">
-                                                <rect key="frame" x="136.5" y="5" width="131" height="32"/>
+                                                <rect key="frame" x="116.5" y="5" width="171" height="32"/>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="タイル"/>
+                                                    <segment title="スライダー"/>
                                                 </segments>
                                             </segmentedControl>
                                         </subviews>
@@ -117,7 +117,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4qa-kh-Jya"/>
                     <connections>
+                        <outlet property="colorChoicesConceptContainerView" destination="SbM-lS-eo1" id="T1e-oC-Kan"/>
+                        <outlet property="colorChoicesSliderContainerView" destination="v5W-Jl-Mit" id="sKj-eu-Mub"/>
+                        <outlet property="colorChoicesTileContainerView" destination="ouo-Yb-FbD" id="hsH-xA-EIy"/>
                         <outlet property="containerView" destination="4Qc-0K-WqC" id="gCN-Ay-oOO"/>
+                        <outlet property="segmentedControl" destination="9lA-YX-AM8" id="oVf-G7-f0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,42 +146,78 @@
             </objects>
             <point key="canvasLocation" x="168" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Choices Concept View Controller-->
         <scene sceneID="kV9-Z1-77b">
             <objects>
-                <viewController id="kYQ-97-zn6" sceneMemberID="viewController">
+                <viewController id="kYQ-97-zn6" customClass="ColorChoicesConceptViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dN5-qp-4hh">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コンセプト" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAn-PE-I0U">
+                                <rect key="frame" x="158.5" y="268.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fAn-PE-I0U" firstAttribute="centerX" secondItem="dN5-qp-4hh" secondAttribute="centerX" id="IUB-PT-koq"/>
+                            <constraint firstItem="fAn-PE-I0U" firstAttribute="centerY" secondItem="dN5-qp-4hh" secondAttribute="centerY" id="cZf-ja-ZrX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBF-yq-Ou8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="-119"/>
+            <point key="canvasLocation" x="1673.913043478261" y="-119.19642857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Choices Tile View Controller-->
         <scene sceneID="Fd7-nJ-Ukf">
             <objects>
-                <viewController id="j3m-rS-3us" sceneMemberID="viewController">
+                <viewController id="j3m-rS-3us" customClass="ColorChoicesTileViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UF6-7a-dsI">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko6-Mu-tyg">
+                                <rect key="frame" x="176" y="268.5" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ko6-Mu-tyg" firstAttribute="centerX" secondItem="UF6-7a-dsI" secondAttribute="centerX" id="5Il-32-kc5"/>
+                            <constraint firstItem="ko6-Mu-tyg" firstAttribute="centerY" secondItem="UF6-7a-dsI" secondAttribute="centerY" id="eb7-39-EpB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4o-2A-gc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2319" y="109"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Choices Slider View Controller-->
         <scene sceneID="Mw7-G3-lCm">
             <objects>
-                <viewController id="3pu-4N-8m8" sceneMemberID="viewController">
+                <viewController id="3pu-4N-8m8" customClass="ColorChoicesSliderViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QCv-zT-N8B">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スライダー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-Cq-uGQ">
+                                <rect key="frame" x="158.5" y="268.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X9Q-Cq-uGQ" firstAttribute="centerX" secondItem="QCv-zT-N8B" secondAttribute="centerX" id="ZrO-2a-qAQ"/>
+                            <constraint firstItem="X9Q-Cq-uGQ" firstAttribute="centerY" secondItem="QCv-zT-N8B" secondAttribute="centerY" id="jqh-pa-FNX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhf-Gd-KpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
