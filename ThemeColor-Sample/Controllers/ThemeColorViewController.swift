@@ -16,6 +16,7 @@ final class ThemeColorViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = navTitle
+        self.view.backgroundColor = .red
         
     }
     

@@ -9,11 +9,24 @@ import UIKit
 
 final class ColorConceptViewController: UIViewController {
     
+    @IBOutlet private weak var tableView: UITableView!
+    
     private static var identifier: String { String(describing: self) }
+    private let testData = ["テストタイトル1", "テストタイトル2", "テストタイトル3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ColorConceptTableViewCell.nib,
+                           forCellReuseIdentifier: ColorConceptTableViewCell.identifier)
+        tableView.tableFooterView = UIView()
     }
     
     static func instantiate() -> ColorConceptViewController {
@@ -27,3 +40,40 @@ final class ColorConceptViewController: UIViewController {
     }
     
 }
+
+extension ColorConceptViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let themeColorVC = ThemeColorViewController.instantiate(navTitle: testData[indexPath.row])
+        self.navigationController?.pushViewController(themeColorVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+}
+
+extension ColorConceptViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ColorConceptTableViewCell.identifier,
+            for: indexPath
+        ) as! ColorConceptTableViewCell
+        cell.configure(title: testData[indexPath.row])
+        return cell
+    }
+    
+}
+
+
+
+
+
+
+
