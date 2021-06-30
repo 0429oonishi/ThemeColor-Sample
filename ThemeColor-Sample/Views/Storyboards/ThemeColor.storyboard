@@ -793,6 +793,11 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-v2-cR5">
                                                 <rect key="frame" x="150" y="10" width="226" height="31"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
+                                                <color key="thumbTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="redSliderValueDidChanged:" destination="3pu-4N-8m8" eventType="valueChanged" id="OOo-l3-emt"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -824,6 +829,11 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="iFZ-Rh-gOf">
                                                 <rect key="frame" x="150" y="10" width="226" height="31"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                                <color key="thumbTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="greenSliderValueDidChanged:" destination="3pu-4N-8m8" eventType="valueChanged" id="Lck-hP-ahh"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -855,6 +865,11 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="saQ-YR-0zs">
                                                 <rect key="frame" x="150" y="10" width="226" height="31"/>
+                                                <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
+                                                <color key="thumbTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="blueSliderValueDidChanged:" destination="3pu-4N-8m8" eventType="valueChanged" id="HF7-TK-YgP"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -886,6 +901,11 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="t6t-6S-EYg">
                                                 <rect key="frame" x="150" y="10" width="226" height="31"/>
+                                                <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="alphaSliderValueDidChanged:" destination="3pu-4N-8m8" eventType="valueChanged" id="9Ir-a2-Nc7"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -912,6 +932,16 @@
                             <constraint firstItem="Jmq-Ae-2qO" firstAttribute="trailing" secondItem="1wb-MX-9tM" secondAttribute="trailing" id="XSu-H4-MTY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alphaNumberLabel" destination="aSG-0m-mGh" id="leM-fl-prI"/>
+                        <outlet property="alphaSlider" destination="t6t-6S-EYg" id="8LC-7s-2Sd"/>
+                        <outlet property="blueNumberLabel" destination="kCw-Ad-LLr" id="yZH-Gf-ZfB"/>
+                        <outlet property="blueSlider" destination="saQ-YR-0zs" id="lm1-sB-vgb"/>
+                        <outlet property="greenNumberLabel" destination="EJ8-ke-UEc" id="jyH-3x-gCZ"/>
+                        <outlet property="greenSlider" destination="iFZ-Rh-gOf" id="0gg-e7-DMK"/>
+                        <outlet property="redNumberLabel" destination="bdN-Ct-FhI" id="NdC-PO-upQ"/>
+                        <outlet property="redSlider" destination="uj0-v2-cR5" id="0pV-Ok-8Jk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhf-Gd-KpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -921,6 +951,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
