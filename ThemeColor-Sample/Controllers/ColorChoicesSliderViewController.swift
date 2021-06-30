@@ -7,23 +7,36 @@
 
 import UIKit
 
-class ColorChoicesSliderViewController: UIViewController {
-
+final class ColorChoicesSliderViewController: UIViewController {
+    
+    @IBOutlet private weak var redNumberLabel: UILabel!
+    @IBOutlet private weak var greenNumberLabel: UILabel!
+    @IBOutlet private weak var blueNumberLabel: UILabel!
+    @IBOutlet private weak var alphaNumberLabel: UILabel!
+    @IBOutlet private weak var redSlider: UISlider!
+    @IBOutlet private weak var greenSlider: UISlider!
+    @IBOutlet private weak var blueSlider: UISlider!
+    @IBOutlet private weak var alphaSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction private func redSliderValueDidChanged(_ sender: UISlider) {
+        redNumberLabel.text = String(Int(sender.value))
     }
-    */
-
+    
+    @IBAction private func greenSliderValueDidChanged(_ sender: UISlider) {
+        greenNumberLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction private func blueSliderValueDidChanged(_ sender: UISlider) {
+        blueNumberLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction private func alphaSliderValueDidChanged(_ sender: UISlider) {
+        alphaNumberLabel.text = String(Int(sender.value))
+    }
+    
 }
