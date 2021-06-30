@@ -50,6 +50,20 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch rows[indexPath.row].title {
+            case "セルフ":
+                let themeColorVC = ThemeColorViewController.instantiate(navTitle: "セルフ",
+                                                                        containerType: .tile)
+                navigationController?.pushViewController(themeColorVC, animated: true)
+            case "オススメ":
+                let colorConceptVC = ColorConceptViewController.instantiate()
+                navigationController?.pushViewController(colorConceptVC, animated: true)
+            default:
+                fatalError("予期せぬタイトルがあります。")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
@@ -66,7 +80,7 @@ extension SettingViewController: UITableViewDelegate {
                 self?.sections[section].expanded.toggle()
                 self?.tableView.beginUpdates()
                 self?.tableView.reloadRows(at: [IndexPath(row: 0, section: section)],
-                                          with: .automatic)
+                                           with: .automatic)
                 self?.tableView.endUpdates()
             }
         }
@@ -100,18 +114,7 @@ extension SettingViewController: UITableViewDataSource {
             withIdentifier: CustomThemeColorTableViewCell.identifier,
             for: indexPath) as! CustomThemeColorTableViewCell
         let row = rows[indexPath.row]
-        cell.configure(row: row) { [weak self] in
-            switch self?.rows[indexPath.row].title {
-                case "セルフ":
-                    let themeColorVC = ThemeColorViewController.instantiate(navTitle: "セルフ")
-                    self?.navigationController?.pushViewController(themeColorVC, animated: true)
-                case "オススメ":
-                    let colorConceptVC = ColorConceptViewController.instantiate()
-                    self?.navigationController?.pushViewController(colorConceptVC, animated: true)
-                default:
-                    fatalError("予期せぬタイトルがあります。")
-            }
-        }
+        cell.configure(row: row)
         return cell
     }
     

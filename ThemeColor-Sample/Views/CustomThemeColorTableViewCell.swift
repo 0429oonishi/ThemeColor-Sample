@@ -14,23 +14,9 @@ final class CustomThemeColorTableViewCell: UITableViewCell {
     
     static var identifier: String { String(describing: self) }
     static var nib: UINib { UINib(nibName: String(describing: self), bundle: nil) }
-    var onTapEvent: (() -> Void)?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(didTapped))
-        self.view.addGestureRecognizer(tapGR)
-        
-    }
-    
-    @objc private func didTapped() {
-        onTapEvent?()
-    }
-    
-    func configure(row: Row, onTapEvent: @escaping () -> Void) {
+    func configure(row: Row) {
         titleLabel.text = row.title
-        self.onTapEvent = onTapEvent 
     }
     
 }

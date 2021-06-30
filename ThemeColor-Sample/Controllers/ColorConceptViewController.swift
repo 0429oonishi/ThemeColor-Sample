@@ -44,7 +44,8 @@ final class ColorConceptViewController: UIViewController {
 extension ColorConceptViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let themeColorVC = ThemeColorViewController.instantiate(navTitle: testData[indexPath.row])
+        let themeColorVC = ThemeColorViewController.instantiate(navTitle: testData[indexPath.row],
+                                                                containerType: .concept)
         self.navigationController?.pushViewController(themeColorVC, animated: true)
     }
     
@@ -66,6 +67,7 @@ extension ColorConceptViewController: UITableViewDataSource {
             for: indexPath
         ) as! ColorConceptTableViewCell
         cell.configure(title: testData[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     

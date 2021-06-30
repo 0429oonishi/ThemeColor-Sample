@@ -53,6 +53,9 @@
                                                     <segment title="タイル"/>
                                                     <segment title="スライダー"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="segmentedControlDidSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="ltx-pG-MmD"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -122,6 +125,7 @@
                         <outlet property="colorChoicesTileContainerView" destination="ouo-Yb-FbD" id="hsH-xA-EIy"/>
                         <outlet property="containerView" destination="4Qc-0K-WqC" id="gCN-Ay-oOO"/>
                         <outlet property="segmentedControl" destination="9lA-YX-AM8" id="oVf-G7-f0P"/>
+                        <outlet property="segmentedControlBackView" destination="ZKJ-me-7A8" id="LLX-8O-wR3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
