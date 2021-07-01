@@ -32,6 +32,7 @@ final class ThemeColorViewController: UIViewController {
         }
     }
     private var navTitle = ""
+    private var colorConcept: ColorConcept?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ final class ThemeColorViewController: UIViewController {
         containerView.bringSubviewToFront(currentContainerView)
         if containerType == .concept {
             segmentedControlBackView.isHidden = true
+            let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
+            colorChoicesConceptVC.colorConcept = colorConcept
         }
         self.navigationItem.title = navTitle
         
@@ -50,7 +53,8 @@ final class ThemeColorViewController: UIViewController {
         containerView.bringSubviewToFront(currentContainerView)
     }
     
-    static func instantiate(navTitle: String, containerType: ContainerType) -> ThemeColorViewController {
+    static func instantiate(containerType: ContainerType,
+                            colorConcept: ColorConcept?) -> ThemeColorViewController {
         let themeColorVC = UIStoryboard(
             name: "ThemeColor",
             bundle: nil
@@ -58,7 +62,9 @@ final class ThemeColorViewController: UIViewController {
             withIdentifier: ThemeColorViewController.identifier
         ) as! ThemeColorViewController
         themeColorVC.containerType = containerType
+        let navTitle = colorConcept?.title ?? "セルフ"
         themeColorVC.navTitle = navTitle
+        themeColorVC.colorConcept = colorConcept
         return themeColorVC
     }
     

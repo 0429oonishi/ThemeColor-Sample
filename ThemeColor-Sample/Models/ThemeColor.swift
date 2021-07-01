@@ -17,14 +17,4 @@ struct ThemeColor {
         self.sub = sub
         self.accent = accent
     }
-    
-    init(_ concept: ColorConcept) {
-        let colors = concept.colors
-        if colors.count != 3 {
-            fatalError("要素数が一致しません。")
-        }
-        self.main = colors[0]
-        self.sub = colors[1]
-        self.accent = colors[2]
-    }
 }
