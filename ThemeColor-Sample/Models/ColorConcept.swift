@@ -7,57 +7,110 @@
 
 import UIKit
 
-// MARK: - ToDo(Fix)
-// 命名がextension UIColorのところとかぶっているが、
-// タイピングや誤入力を事前に防ぐようにするためにこのような書き方にしている。
-// もっと良いやり方が分かり次第、修正する。(名前空間を使っても補完する方法)
-
-enum ColorConcept {
-    
-    case natural(_ subConcept: NaturalConcept)
-    case pop(_ subConcept: PopConcept)
-    var colors: [UIColor] {
+enum ColorConcept: Int, CaseIterable {
+    case natural
+    case pop
+    case elegant
+    case modern
+    case season
+    case japan
+    case overseas
+    case service
+    var title: String {
         switch self {
-            case .natural(.relax(let colors)): return colors
-            case .natural(.feminine(let colors)): return colors
-            case .natural(.organic(let colors)): return colors
-            case .natural(.craft(let colors)): return colors
-            case .natural(.living(let colors)): return colors
-            case .natural(.botanical(let colors)): return colors
-            case .pop(.a(let colors)): return colors
-            case .pop(.b(let colors)): return colors
-            // ...
+            case .natural: return "ナチュラル"
+            case .pop: return "ポップ"
+            case .elegant: return "エレガント"
+            case .modern: return "モダン"
+            case .season: return "シーズン"
+            case .japan: return "ジャパン"
+            case .overseas: return "オーバーシーズ"
+            case .service: return "サービス"
+        }
+    }
+    var subConceptTitles: [String] {
+        switch self {
+            case .natural: return NaturalConcept.allCases.map { $0.title }
+            case .pop:
+                <#code#>
+            case .elegant:
+                <#code#>
+            case .modern:
+                <#code#>
+            case .season:
+                <#code#>
+            case .japan:
+                <#code#>
+            case .overseas:
+                <#code#>
+            case .service:
+                <#code#>
+        }
+    }
+    var colors: [[UIColor]] {
+        switch self {
+            case .natural: return NaturalConcept.allCases.map { $0.colors }
+            case .pop:
+                <#code#>
+            case .elegant:
+                <#code#>
+            case .modern:
+                <#code#>
+            case .season:
+                <#code#>
+            case .japan:
+                <#code#>
+            case .overseas:
+                <#code#>
+            case .service:
+                <#code#>
         }
     }
 }
 
-enum NaturalConcept {
-    case relax(_ colors: [UIColor] = [.Natural.Relax.eggIvory,
-                                      .Natural.Relax.softBuff,
-                                      .Natural.Relax.mistMossGreen])
-    case feminine(_ colors: [UIColor] = [.Natural.Feminine.grandmaPink,
-                                         .Natural.Feminine.blueVanilla,
-                                         .Natural.Feminine.grandmaPurple])
-    case organic(_ colors: [UIColor] = [.Natural.Organic.pattyGray,
-                                        .Natural.Organic.classicPink,
-                                        .Natural.Organic.smoothGreen])
-    case craft(_ colors: [UIColor] = [.Natural.Craft.twilightGray,
-                                      .Natural.Craft.sharpGray,
-                                      .Natural.Craft.japaneseKai])
-    case living(_ colors: [UIColor] = [.Natural.Living.creamBlue,
-                                       .Natural.Living.northOcean,
-                                       .Natural.Living.shineMuscat])
-    case botanical(_ colors: [UIColor] = [.Natural.Botanical.clearWater,
-                                          .Natural.Botanical.fineweed,
-                                          .Natural.Botanical.babyLeaf])
+enum NaturalConcept: CaseIterable {
+    case relax
+    case feminine
+    case organic
+    case craft
+    case living
+    case botanical
+    var title: String {
+        switch self {
+            case .relax: return "リラックス"
+            case .feminine: return "フェミニン"
+            case .organic: return "オーガニック"
+            case .craft: return "クラフト"
+            case .living: return "リビング"
+            case .botanical: return "ボタニカル"
+        }
+    }
+    var colors: [UIColor] {
+        switch self {
+            case .relax: return [.Natural.Relax.eggIvory,
+                                 .Natural.Relax.softBuff,
+                                 .Natural.Relax.mistMossGreen]
+            case .feminine: return [.Natural.Feminine.grandmaPink,
+                                    .Natural.Feminine.blueVanilla,
+                                    .Natural.Feminine.grandmaPurple]
+            case .organic: return [.Natural.Organic.pattyGray,
+                                   .Natural.Organic.classicPink,
+                                   .Natural.Organic.smoothGreen]
+            case .craft: return [.Natural.Craft.twilightGray,
+                                 .Natural.Craft.sharpGray,
+                                 .Natural.Craft.japaneseKai]
+            case .living: return [.Natural.Living.creamBlue,
+                                  .Natural.Living.northOcean,
+                                  .Natural.Living.shineMuscat]
+            case .botanical: return [.Natural.Botanical.clearWater,
+                                     .Natural.Botanical.fineweed,
+                                     .Natural.Botanical.babyLeaf]
+        }
+    }
 }
 
 enum PopConcept {
-    // MARK: - ToDo あとでちゃんとかく
-    case a(_ colors: [UIColor] = [.Pop.A.sampleColor,
-                                  .Pop.A.sampleColor2,
-                                  .Pop.A.sampleColor3])
-    case b(_ colors: [UIColor] = [.red, .blue, .green])
+    
 }
 
 private extension UIColor {
@@ -96,17 +149,7 @@ private extension UIColor {
     }
     
     struct Pop {
-        struct A {
-            // MARK: - ToDo あとでちゃんとした値を入れる
-            static let sampleColor = UIColor(hex: "111111")
-            static let sampleColor2 = UIColor(hex: "222222")
-            static let sampleColor3 = UIColor(hex: "333333")
-        }
-        struct B {
-            
-        }
+        
     }
-    
-    // ...
     
 }
