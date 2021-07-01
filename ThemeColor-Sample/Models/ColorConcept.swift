@@ -11,7 +11,6 @@ enum ColorConcept: CaseIterable {
     case natural
     case pop
     case elegant
-    case modern
     case season
     case japan
     case overseas
@@ -21,7 +20,6 @@ enum ColorConcept: CaseIterable {
             case .natural: return "ナチュラル"
             case .pop: return "ポップ"
             case .elegant: return "エレガント"
-            case .modern: return "モダン"
             case .season: return "シーズン"
             case .japan: return "ジャパン"
             case .overseas: return "オーバーシーズ"
@@ -33,7 +31,6 @@ enum ColorConcept: CaseIterable {
             case .natural: return NaturalConcept.allCases.map { $0.title }
             case .pop: return PopConcept.allCases.map { $0.title }
             case .elegant: return ElegantConcept.allCases.map { $0.title }
-            case .modern: return ModernConcept.allCases.map { $0.title }
             case .season: return SeasonConcept.allCases.map { $0.title }
             case .japan: return JapanConcept.allCases.map { $0.title }
             case .overseas: return OverseasConcept.allCases.map { $0.title }
@@ -45,7 +42,6 @@ enum ColorConcept: CaseIterable {
             case .natural: return NaturalConcept.allCases.map { $0.colors }
             case .pop: return PopConcept.allCases.map { $0.colors }
             case .elegant: return ElegantConcept.allCases.map { $0.colors }
-            case .modern: return ModernConcept.allCases.map { $0.colors }
             case .season: return SeasonConcept.allCases.map { $0.colors }
             case .japan: return JapanConcept.allCases.map { $0.colors }
             case .overseas: return OverseasConcept.allCases.map { $0.colors }

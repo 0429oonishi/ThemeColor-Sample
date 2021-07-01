@@ -12,6 +12,7 @@ enum ElegantConcept: CaseIterable {
     case gorgeous
     case art
     case intelligence
+    
     var title: String {
         switch self {
             case .adultColor: return "アダルトカラー"

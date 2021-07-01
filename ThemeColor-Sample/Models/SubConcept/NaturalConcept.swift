@@ -14,6 +14,7 @@ enum NaturalConcept: CaseIterable {
     case craft
     case living
     case botanical
+    
     var title: String {
         switch self {
             case .relax: return "リラックス"
