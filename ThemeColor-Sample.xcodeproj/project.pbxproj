@@ -16,6 +16,7 @@
 		AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */; };
 		AB526D11268CE55800DEC581 /* ColorSubConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */; };
 		AB526D12268CE55800DEC581 /* ColorSubConceptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */; };
+		AB526D15268E497F00DEC581 /* NaturalConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D14268E497F00DEC581 /* NaturalConcept.swift */; };
 		ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF935282689E25A00A3F933 /* AppDelegate.swift */; };
 		ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */; };
 		ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Setting.storyboard */; };
@@ -43,6 +44,7 @@
 		AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesSliderViewController.swift; sourceTree = "<group>"; };
 		AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSubConceptTableViewCell.swift; sourceTree = "<group>"; };
 		AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSubConceptTableViewCell.xib; sourceTree = "<group>"; };
+		AB526D14268E497F00DEC581 /* NaturalConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalConcept.swift; sourceTree = "<group>"; };
 		ABF935252689E25A00A3F933 /* ThemeColor-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ThemeColor-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF935282689E25A00A3F933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				ABF9353C2689E2F900A3F933 /* ThemeColor.swift */,
 				ABF9353E2689E32A00A3F933 /* ColorConcept.swift */,
+				AB526D14268E497F00DEC581 /* NaturalConcept.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				ABF9354B268A02C000A3F933 /* ColorConceptViewController.swift in Sources */,
 				ABF9353D2689E2F900A3F933 /* ThemeColor.swift in Sources */,
+				AB526D15268E497F00DEC581 /* NaturalConcept.swift in Sources */,
 				AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */,
 				AB526CD9268B842500DEC581 /* ColorChoicesConceptViewController.swift in Sources */,
 				ABF93549268A021400A3F933 /* ThemeColorViewController.swift in Sources */,
