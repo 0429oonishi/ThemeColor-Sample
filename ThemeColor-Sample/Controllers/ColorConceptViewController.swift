@@ -12,7 +12,7 @@ final class ColorConceptViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private static var identifier: String { String(describing: self) }
-    private let testData = ["テストタイトル1", "テストタイトル2", "テストタイトル3"]
+    private let colorConcepts = ColorConcept.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +44,8 @@ final class ColorConceptViewController: UIViewController {
 extension ColorConceptViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let themeColorVC = ThemeColorViewController.instantiate(navTitle: testData[indexPath.row],
-                                                                containerType: .concept)
+        let themeColorVC = ThemeColorViewController.instantiate(containerType: .concept,
+                                                                colorConcept: colorConcepts[indexPath.row])
         self.navigationController?.pushViewController(themeColorVC, animated: true)
     }
     
@@ -58,7 +58,7 @@ extension ColorConceptViewController: UITableViewDelegate {
 extension ColorConceptViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testData.count
+        return colorConcepts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +66,8 @@ extension ColorConceptViewController: UITableViewDataSource {
             withIdentifier: ColorConceptTableViewCell.identifier,
             for: indexPath
         ) as! ColorConceptTableViewCell
-        cell.configure(title: testData[indexPath.row])
+        let title = colorConcepts[indexPath.row].title
+        cell.configure(title: title)
         cell.selectionStyle = .none
         return cell
     }

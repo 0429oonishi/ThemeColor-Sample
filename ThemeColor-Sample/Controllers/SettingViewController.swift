@@ -53,8 +53,8 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch rows[indexPath.row].title {
             case "セルフ":
-                let themeColorVC = ThemeColorViewController.instantiate(navTitle: "セルフ",
-                                                                        containerType: .tile)
+                let themeColorVC = ThemeColorViewController.instantiate(containerType: .tile,
+                                                                        colorConcept: nil)
                 navigationController?.pushViewController(themeColorVC, animated: true)
             case "オススメ":
                 let colorConceptVC = ColorConceptViewController.instantiate()
