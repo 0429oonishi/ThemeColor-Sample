@@ -31,40 +31,25 @@ enum ColorConcept: CaseIterable {
     var subConceptTitles: [String] {
         switch self {
             case .natural: return NaturalConcept.allCases.map { $0.title }
-            case .pop:
-                <#code#>
-            case .elegant:
-                <#code#>
-            case .modern:
-                <#code#>
-            case .season:
-                <#code#>
-            case .japan:
-                <#code#>
-            case .overseas:
-                <#code#>
-            case .service:
-                <#code#>
+            case .pop: return PopConcept.allCases.map { $0.title }
+            case .elegant: return ElegantConcept.allCases.map { $0.title }
+            case .modern: return ModernConcept.allCases.map { $0.title }
+            case .season: return SeasonConcept.allCases.map { $0.title }
+            case .japan: return JapanConcept.allCases.map { $0.title }
+            case .overseas: return OverseasConcept.allCases.map { $0.title }
+            case .service: return ServiceConcept.allCases.map { $0.title }
         }
     }
     var colors: [[UIColor]] {
         switch self {
             case .natural: return NaturalConcept.allCases.map { $0.colors }
-            case .pop:
-                <#code#>
-            case .elegant:
-                <#code#>
-            case .modern:
-                <#code#>
-            case .season:
-                <#code#>
-            case .japan:
-                <#code#>
-            case .overseas:
-                <#code#>
-            case .service:
-                <#code#>
+            case .pop: return PopConcept.allCases.map { $0.colors }
+            case .elegant: return ElegantConcept.allCases.map { $0.colors }
+            case .modern: return ModernConcept.allCases.map { $0.colors }
+            case .season: return SeasonConcept.allCases.map { $0.colors }
+            case .japan: return JapanConcept.allCases.map { $0.colors }
+            case .overseas: return OverseasConcept.allCases.map { $0.colors }
+            case .service: return ServiceConcept.allCases.map { $0.colors }
         }
     }
 }
-

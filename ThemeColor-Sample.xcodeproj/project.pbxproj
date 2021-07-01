@@ -17,6 +17,8 @@
 		AB526D11268CE55800DEC581 /* ColorSubConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */; };
 		AB526D12268CE55800DEC581 /* ColorSubConceptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */; };
 		AB526D15268E497F00DEC581 /* NaturalConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D14268E497F00DEC581 /* NaturalConcept.swift */; };
+		AB526D17268E527700DEC581 /* PopConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D16268E527700DEC581 /* PopConcept.swift */; };
+		AB526D1A268E52EE00DEC581 /* ElegantConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D19268E52EE00DEC581 /* ElegantConcept.swift */; };
 		ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF935282689E25A00A3F933 /* AppDelegate.swift */; };
 		ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */; };
 		ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Setting.storyboard */; };
@@ -45,6 +47,8 @@
 		AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSubConceptTableViewCell.swift; sourceTree = "<group>"; };
 		AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSubConceptTableViewCell.xib; sourceTree = "<group>"; };
 		AB526D14268E497F00DEC581 /* NaturalConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalConcept.swift; sourceTree = "<group>"; };
+		AB526D16268E527700DEC581 /* PopConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopConcept.swift; sourceTree = "<group>"; };
+		AB526D19268E52EE00DEC581 /* ElegantConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegantConcept.swift; sourceTree = "<group>"; };
 		ABF935252689E25A00A3F933 /* ThemeColor-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ThemeColor-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF935282689E25A00A3F933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,16 @@
 				AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		AB526D18268E52B900DEC581 /* SubConcept */ = {
+			isa = PBXGroup;
+			children = (
+				AB526D14268E497F00DEC581 /* NaturalConcept.swift */,
+				AB526D16268E527700DEC581 /* PopConcept.swift */,
+				AB526D19268E52EE00DEC581 /* ElegantConcept.swift */,
+			);
+			path = SubConcept;
 			sourceTree = "<group>";
 		};
 		ABF9351C2689E25A00A3F933 = {
@@ -158,7 +172,7 @@
 			children = (
 				ABF9353C2689E2F900A3F933 /* ThemeColor.swift */,
 				ABF9353E2689E32A00A3F933 /* ColorConcept.swift */,
-				AB526D14268E497F00DEC581 /* NaturalConcept.swift */,
+				AB526D18268E52B900DEC581 /* SubConcept */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF9354B268A02C000A3F933 /* ColorConceptViewController.swift in Sources */,
+				AB526D1A268E52EE00DEC581 /* ElegantConcept.swift in Sources */,
 				ABF9353D2689E2F900A3F933 /* ThemeColor.swift in Sources */,
 				AB526D15268E497F00DEC581 /* NaturalConcept.swift in Sources */,
 				AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */,
@@ -263,6 +278,7 @@
 				AB526CD6268B63B100DEC581 /* ColorConceptTableViewCell.swift in Sources */,
 				ABF9353F2689E32A00A3F933 /* ColorConcept.swift in Sources */,
 				ABF93547268A01E700A3F933 /* SettingViewController.swift in Sources */,
+				AB526D17268E527700DEC581 /* PopConcept.swift in Sources */,
 				ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

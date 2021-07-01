@@ -29,27 +29,34 @@ enum PopConcept: CaseIterable {
     }
     var colors: [UIColor] {
         switch self {
-            case .colorful: return [.Colorful.tangoRed,
-                                    .Colorful.mxicanPurple,
-                                    .Colorful.mexicanPink]
-            case .retro: return [.Retro.mattIvory,
-                                 .Retro.familyRed,
-                                 .Retro.retroGreen]
-            case .kids: return [.Kids.recitalOrange,
-                                .Kids.dummyGreen,
-                                .Kids.gauguinRed]
-            case .girly: return [.Girly.softShellPink,
-                                 .Girly.paleMint,
-                                 .Girly.irisMagic]
-            case .active: return [.Active.aquaMermaid,
-                                  .Active.vividGrape,
-                                  .Active.ladiesPink]
-            case .catchu: return [.Catchu.dandelion,
-                                  .Catchu.habaneroRed,
-                                  .Catchu.harmonyGreen]
-            case .happy: return [.Happy.cantaloupe,
-                                 .Happy.macaronPink,
-                                 .Happy.babyBlue]
+            case .colorful:
+                return [.Colorful.tangoRed,
+                        .Colorful.mxicanPurple,
+                        .Colorful.mexicanPink]
+            case .retro:
+                return [.Retro.mattIvory,
+                        .Retro.familyRed,
+                        .Retro.retroGreen]
+            case .kids:
+                return [.Kids.recitalOrange,
+                        .Kids.dummyGreen,
+                        .Kids.gauguinRed]
+            case .girly:
+                return [.Girly.softShellPink,
+                        .Girly.paleMint,
+                        .Girly.irisMagic]
+            case .active:
+                return [.Active.aquaMermaid,
+                        .Active.vividGrape,
+                        .Active.ladiesPink]
+            case .catchu:
+                return [.Catchu.dandelion,
+                        .Catchu.habaneroRed,
+                        .Catchu.harmonyGreen]
+            case .happy:
+                return [.Happy.cantaloupe,
+                        .Happy.macaronPink,
+                        .Happy.babyBlue]
         }
     }
 }
