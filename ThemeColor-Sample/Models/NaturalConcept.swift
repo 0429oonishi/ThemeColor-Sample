@@ -26,31 +26,30 @@ enum NaturalConcept: CaseIterable {
     }
     var colors: [UIColor] {
         switch self {
-            case .relax: return [.Natural.Relax.eggIvory,
-                                 .Natural.Relax.softBuff,
-                                 .Natural.Relax.mistMossGreen]
-            case .feminine: return [.Natural.Feminine.grandmaPink,
-                                    .Natural.Feminine.blueVanilla,
-                                    .Natural.Feminine.grandmaPurple]
-            case .organic: return [.Natural.Organic.pattyGray,
-                                   .Natural.Organic.classicPink,
-                                   .Natural.Organic.smoothGreen]
-            case .craft: return [.Natural.Craft.twilightGray,
-                                 .Natural.Craft.sharpGray,
-                                 .Natural.Craft.japaneseKai]
-            case .living: return [.Natural.Living.creamBlue,
-                                  .Natural.Living.northOcean,
-                                  .Natural.Living.shineMuscat]
-            case .botanical: return [.Natural.Botanical.clearWater,
-                                     .Natural.Botanical.fineweed,
-                                     .Natural.Botanical.babyLeaf]
+            case .relax: return [.Relax.eggIvory,
+                                 .Relax.softBuff,
+                                 .Relax.mistMossGreen]
+            case .feminine: return [.Feminine.grandmaPink,
+                                    .Feminine.blueVanilla,
+                                    .Feminine.grandmaPurple]
+            case .organic: return [.Organic.pattyGray,
+                                   .Organic.classicPink,
+                                   .Organic.smoothGreen]
+            case .craft: return [.Craft.twilightGray,
+                                 .Craft.sharpGray,
+                                 .Craft.japaneseKai]
+            case .living: return [.Living.creamBlue,
+                                  .Living.northOcean,
+                                  .Living.shineMuscat]
+            case .botanical: return [.Botanical.clearWater,
+                                     .Botanical.fineweed,
+                                     .Botanical.babyLeaf]
         }
     }
 }
 
 private extension UIColor {
     
-    struct Natural {
         struct Relax {
             static let eggIvory = UIColor(hex: "f3eed5")
             static let softBuff = UIColor(hex: "e4af9b")
@@ -81,6 +80,5 @@ private extension UIColor {
             static let fineweed = UIColor(hex: "74a64c")
             static let babyLeaf = UIColor(hex: "bcd537")
         }
-    }
     
 }
