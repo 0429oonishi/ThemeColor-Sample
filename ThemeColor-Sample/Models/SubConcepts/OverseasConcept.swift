@@ -11,6 +11,10 @@ enum OverseasConcept: CaseIterable {
     case foreignCountries
     case journey
     case mysterious
+}
+
+extension OverseasConcept {
+    
     var title: String {
         switch self {
             case .foreignCountries: return "外国"
@@ -34,6 +38,7 @@ enum OverseasConcept: CaseIterable {
                         .Mysterious.poolsideGreen]
         }
     }
+    
 }
 
 private extension UIColor {
