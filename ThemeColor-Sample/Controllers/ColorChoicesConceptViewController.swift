@@ -37,6 +37,10 @@ final class ColorChoicesConceptViewController: UIViewController {
 
 extension ColorChoicesConceptViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
@@ -55,6 +59,7 @@ extension ColorChoicesConceptViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCustomCell(with: ColorSubConceptTableViewCell.self)
         cell.configure(title: titles[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     

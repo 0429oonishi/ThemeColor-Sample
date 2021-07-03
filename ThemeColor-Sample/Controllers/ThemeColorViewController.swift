@@ -15,6 +15,9 @@ enum ContainerType: Int {
 
 final class ThemeColorViewController: UIViewController {
     
+    @IBOutlet private weak var mainColorView: UIView!
+    @IBOutlet private weak var subColorView: UIView!
+    @IBOutlet private weak var accentColorView: UIView!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var segmentedControlBackView: UIView!
     @IBOutlet private weak var containerView: UIView!
@@ -22,7 +25,6 @@ final class ThemeColorViewController: UIViewController {
     @IBOutlet private weak var colorChoicesTileContainerView: UIView!
     @IBOutlet private weak var colorChoicesSliderContainerView: UIView!
     
-    private static var identifier: String { String(describing: self) }
     private var containerType: ContainerType = .tile
     private var currentContainerView: UIView {
         switch containerType {
@@ -44,6 +46,11 @@ final class ThemeColorViewController: UIViewController {
             colorChoicesConceptVC.colorConcept = colorConcept
         }
         self.navigationItem.title = navTitle
+        
+        if containerType == .tile {
+            let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
+            colorChoicesTileVC.delegate = self
+        }
         
     }
     
@@ -68,4 +75,13 @@ final class ThemeColorViewController: UIViewController {
         return themeColorVC
     }
     
+}
+
+extension ThemeColorViewController: ColorChoicesTileVCDelegate {
+
+    func tileViewDidTapped(selectedView: UIView) {
+        mainColorView.backgroundColor = selectedView.backgroundColor
+        mainColorView.alpha = selectedView.alpha
+    }
+
 }
