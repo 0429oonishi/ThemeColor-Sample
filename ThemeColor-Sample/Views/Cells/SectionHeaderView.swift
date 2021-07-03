@@ -12,8 +12,6 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var view: UIView!
     
-    static var identifier: String { String(describing: self) }
-    static var nib: UINib { UINib(nibName: String(describing: self), bundle: nil) }
     var onTapEvent: (() -> Void)?
     
     override func awakeFromNib() {

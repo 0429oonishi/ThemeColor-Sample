@@ -15,6 +15,7 @@ enum ColorConcept: CaseIterable {
     case japan
     case overseas
     case service
+    
     var title: String {
         switch self {
             case .natural: return "ナチュラル"

@@ -39,10 +39,8 @@ final class SettingViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CustomThemeColorTableViewCell.nib,
-                           forCellReuseIdentifier: CustomThemeColorTableViewCell.identifier)
-        tableView.register(SectionHeaderView.nib,
-                           forHeaderFooterViewReuseIdentifier: SectionHeaderView.identifier)
+        tableView.registerCustomCell(CustomThemeColorTableViewCell.self)
+        tableView.registerCustomCell(SectionHeaderView.self)
         tableView.tableFooterView = UIView()
     }
     
@@ -73,7 +71,7 @@ extension SettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderView.identifier) as! SectionHeaderView
+        let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
         let mySection = sections[section]
         headerView.configure(section: mySection) { [weak self] in
             if self?.sections[section].title == "テーマカラー" {
@@ -110,9 +108,7 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: CustomThemeColorTableViewCell.identifier,
-            for: indexPath) as! CustomThemeColorTableViewCell
+        let cell = tableView.dequeueReusableCustomCell(with: CustomThemeColorTableViewCell.self)
         let row = rows[indexPath.row]
         cell.configure(row: row)
         return cell

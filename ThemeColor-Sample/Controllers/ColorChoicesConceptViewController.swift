@@ -29,8 +29,7 @@ final class ColorChoicesConceptViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ColorSubConceptTableViewCell.nib,
-                           forCellReuseIdentifier: ColorSubConceptTableViewCell.identifier)
+        tableView.registerCustomCell(ColorSubConceptTableViewCell.self)
         tableView.tableFooterView = UIView()
     }
     
@@ -54,10 +53,7 @@ extension ColorChoicesConceptViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: ColorSubConceptTableViewCell.identifier,
-            for: indexPath
-        ) as! ColorSubConceptTableViewCell
+        let cell = tableView.dequeueReusableCustomCell(with: ColorSubConceptTableViewCell.self)
         cell.configure(title: titles[indexPath.row])
         return cell
     }

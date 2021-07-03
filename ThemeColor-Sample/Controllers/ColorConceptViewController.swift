@@ -24,8 +24,7 @@ final class ColorConceptViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ColorConceptTableViewCell.nib,
-                           forCellReuseIdentifier: ColorConceptTableViewCell.identifier)
+        tableView.registerCustomCell(ColorConceptTableViewCell.self)
         tableView.tableFooterView = UIView()
     }
     
@@ -62,10 +61,7 @@ extension ColorConceptViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: ColorConceptTableViewCell.identifier,
-            for: indexPath
-        ) as! ColorConceptTableViewCell
+        let cell = tableView.dequeueReusableCustomCell(with: ColorConceptTableViewCell.self)
         let title = colorConcepts[indexPath.row].title
         cell.configure(title: title)
         cell.selectionStyle = .none
