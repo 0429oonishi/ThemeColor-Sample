@@ -12,6 +12,9 @@ enum SeasonConcept: CaseIterable {
     case summer
     case autumn
     case winter
+}
+
+extension SeasonConcept {
     
     var title: String {
         switch self {
@@ -41,6 +44,7 @@ enum SeasonConcept: CaseIterable {
                         .Winter.betterGray]
         }
     }
+    
 }
 
 private extension UIColor {
