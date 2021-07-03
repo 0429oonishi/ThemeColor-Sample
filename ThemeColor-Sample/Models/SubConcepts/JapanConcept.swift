@@ -11,6 +11,9 @@ enum JapanConcept: CaseIterable {
     case beautiful
     case tradition
     case moist
+}
+
+extension JapanConcept {
     
     var title: String {
         switch self {
@@ -35,6 +38,7 @@ enum JapanConcept: CaseIterable {
                         .Moist.signoraRed]
         }
     }
+    
 }
 
 private extension UIColor {
