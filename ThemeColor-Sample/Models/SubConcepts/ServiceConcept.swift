@@ -11,6 +11,9 @@ enum ServiceConcept: CaseIterable {
     case business
     case digital
     case shop
+}
+
+extension ServiceConcept {
     
     var title: String {
         switch self {
@@ -35,6 +38,7 @@ enum ServiceConcept: CaseIterable {
                         .Shop.riverside]
         }
     }
+    
 }
 
 private extension UIColor {
