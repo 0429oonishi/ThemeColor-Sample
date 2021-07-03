@@ -12,6 +12,9 @@ enum ElegantConcept: CaseIterable {
     case gorgeous
     case art
     case intelligence
+}
+
+extension ElegantConcept {
     
     var title: String {
         switch self {
@@ -41,6 +44,7 @@ enum ElegantConcept: CaseIterable {
                         .Intelligence.gentryBlue]
         }
     }
+    
 }
 
 private extension UIColor {
