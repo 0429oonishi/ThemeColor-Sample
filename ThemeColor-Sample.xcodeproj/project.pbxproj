@@ -20,6 +20,9 @@
 		AB526D17268E527700DEC581 /* PopConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D16268E527700DEC581 /* PopConcept.swift */; };
 		AB526D1A268E52EE00DEC581 /* ElegantConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D19268E52EE00DEC581 /* ElegantConcept.swift */; };
 		AB526D1E268E588A00DEC581 /* SeasonConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D1D268E588A00DEC581 /* SeasonConcept.swift */; };
+		AB526D20268E5C1D00DEC581 /* JapanConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D1F268E5C1D00DEC581 /* JapanConcept.swift */; };
+		AB526D22268EDE0300DEC581 /* OverseasConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D21268EDE0300DEC581 /* OverseasConcept.swift */; };
+		AB526D242690342900DEC581 /* ServiceConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D232690342900DEC581 /* ServiceConcept.swift */; };
 		ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF935282689E25A00A3F933 /* AppDelegate.swift */; };
 		ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */; };
 		ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Setting.storyboard */; };
@@ -51,6 +54,9 @@
 		AB526D16268E527700DEC581 /* PopConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopConcept.swift; sourceTree = "<group>"; };
 		AB526D19268E52EE00DEC581 /* ElegantConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegantConcept.swift; sourceTree = "<group>"; };
 		AB526D1D268E588A00DEC581 /* SeasonConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonConcept.swift; sourceTree = "<group>"; };
+		AB526D1F268E5C1D00DEC581 /* JapanConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanConcept.swift; sourceTree = "<group>"; };
+		AB526D21268EDE0300DEC581 /* OverseasConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasConcept.swift; sourceTree = "<group>"; };
+		AB526D232690342900DEC581 /* ServiceConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConcept.swift; sourceTree = "<group>"; };
 		ABF935252689E25A00A3F933 /* ThemeColor-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ThemeColor-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF935282689E25A00A3F933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,15 +112,18 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		AB526D18268E52B900DEC581 /* SubConcept */ = {
+		AB526D18268E52B900DEC581 /* SubConcepts */ = {
 			isa = PBXGroup;
 			children = (
 				AB526D14268E497F00DEC581 /* NaturalConcept.swift */,
 				AB526D16268E527700DEC581 /* PopConcept.swift */,
 				AB526D19268E52EE00DEC581 /* ElegantConcept.swift */,
 				AB526D1D268E588A00DEC581 /* SeasonConcept.swift */,
+				AB526D1F268E5C1D00DEC581 /* JapanConcept.swift */,
+				AB526D21268EDE0300DEC581 /* OverseasConcept.swift */,
+				AB526D232690342900DEC581 /* ServiceConcept.swift */,
 			);
-			path = SubConcept;
+			path = SubConcepts;
 			sourceTree = "<group>";
 		};
 		ABF9351C2689E25A00A3F933 = {
@@ -175,7 +184,7 @@
 			children = (
 				ABF9353C2689E2F900A3F933 /* ThemeColor.swift */,
 				ABF9353E2689E32A00A3F933 /* ColorConcept.swift */,
-				AB526D18268E52B900DEC581 /* SubConcept */,
+				AB526D18268E52B900DEC581 /* SubConcepts */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,9 +281,12 @@
 				AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */,
 				AB526CD9268B842500DEC581 /* ColorChoicesConceptViewController.swift in Sources */,
 				ABF93549268A021400A3F933 /* ThemeColorViewController.swift in Sources */,
+				AB526D20268E5C1D00DEC581 /* JapanConcept.swift in Sources */,
 				AB526D11268CE55800DEC581 /* ColorSubConceptTableViewCell.swift in Sources */,
 				ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */,
+				AB526D22268EDE0300DEC581 /* OverseasConcept.swift in Sources */,
 				ABF9354D268A06EC00A3F933 /* SectionHeaderView.swift in Sources */,
+				AB526D242690342900DEC581 /* ServiceConcept.swift in Sources */,
 				ABF935412689E35500A3F933 /* UIColor+Extension.swift in Sources */,
 				AB526D1E268E588A00DEC581 /* SeasonConcept.swift in Sources */,
 				AB526CDB268B847D00DEC581 /* ColorChoicesTileViewController.swift in Sources */,
