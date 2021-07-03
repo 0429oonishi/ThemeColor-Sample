@@ -15,6 +15,9 @@ enum PopConcept: CaseIterable {
     case active
     case catchu
     case happy
+}
+
+extension PopConcept {
     
     var title: String {
         switch self {
@@ -59,6 +62,7 @@ enum PopConcept: CaseIterable {
                         .Happy.babyBlue]
         }
     }
+    
 }
 
 private extension UIColor {
