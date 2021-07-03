@@ -14,6 +14,9 @@ enum NaturalConcept: CaseIterable {
     case craft
     case living
     case botanical
+}
+
+extension NaturalConcept {
     
     var title: String {
         switch self {
@@ -53,6 +56,7 @@ enum NaturalConcept: CaseIterable {
                         .Botanical.babyLeaf]
         }
     }
+    
 }
 
 private extension UIColor {
