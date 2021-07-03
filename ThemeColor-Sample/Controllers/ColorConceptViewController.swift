@@ -11,7 +11,6 @@ final class ColorConceptViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private static var identifier: String { String(describing: self) }
     private let colorConcepts = ColorConcept.allCases
     
     override func viewDidLoad() {
