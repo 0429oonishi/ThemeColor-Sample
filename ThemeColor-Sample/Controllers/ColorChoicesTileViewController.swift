@@ -29,6 +29,20 @@ final class ThemeColorTileView: UIView {
     
 }
 
+protocol ThemeColorViewDelegate: AnyObject {
+    
+}
+
+final class ThemeColorView: UIView {
+    
+    weak var delegate: ThemeColorViewDelegate?
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        <#code#>
+    }
+    
+}
+
 protocol ColorChoicesTileVCDelegate: AnyObject {
     func tileViewDidTapped(selectedView: UIView)
 }
