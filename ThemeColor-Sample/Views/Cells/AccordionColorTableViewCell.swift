@@ -13,15 +13,13 @@ final class AccordionColorTableViewCell: UITableViewCell {
     @IBOutlet private weak var centerTileView: ThemeColorTileView!
     @IBOutlet private weak var rightTileView: ThemeColorTileView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        leftTileView.layer.cornerRadius = 0
+        centerTileView.layer.cornerRadius = 0
+        rightTileView.layer.cornerRadius = 0
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configure(colors: [UIColor]) {
