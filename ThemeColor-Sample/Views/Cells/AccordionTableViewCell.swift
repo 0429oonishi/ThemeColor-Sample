@@ -12,8 +12,8 @@ final class AccordionTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var view: UIView!
     
-    func configure(row: Row) {
-        titleLabel.text = row.title
+    func configure(title: String) {
+        titleLabel.text = title
     }
     
 }
