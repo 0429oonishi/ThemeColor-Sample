@@ -46,7 +46,8 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         switch rows[indexPath.row].title {
             case "セルフ":
                 let themeColorVC = ThemeColorViewController.instantiate(containerType: .tile,
@@ -60,15 +61,18 @@ extension SettingViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].expanded ? 60 : 0
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
         let title = sections[section].title
         headerView.configure(title: title) { [weak self] in
@@ -87,10 +91,8 @@ extension SettingViewController: UITableViewDelegate {
 
 extension SettingViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if sections[section].title == "テーマカラー"  {
-            return rows.count
-        }
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         switch sections[section].title {
             case "テーマカラー":
                 return rows.count
@@ -105,10 +107,11 @@ extension SettingViewController: UITableViewDataSource {
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCustomCell(with: AccordionTableViewCell.self)
-        let row = rows[indexPath.row]
-        cell.configure(row: row)
+        let title = rows[indexPath.row].title
+        cell.configure(title: title)
         return cell
     }
     
