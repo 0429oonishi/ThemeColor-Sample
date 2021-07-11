@@ -118,7 +118,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3GF-Pr-HSp" secondAttribute="trailing" constant="5" id="rac-NB-rqi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4qa-kh-Jya"/>
+                    <navigationItem key="navigationItem" id="4qa-kh-Jya">
+                        <barButtonItem key="rightBarButtonItem" title="決定" id="Idi-2H-haP">
+                            <connections>
+                                <action selector="saveButtonDidTapped:" destination="Y6W-OH-hqX" id="Hjs-GL-Es5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accentColorView" destination="a42-HT-Y4I" id="2LU-cL-gEa"/>
                         <outlet property="colorChoicesConceptContainerView" destination="SbM-lS-eo1" id="T1e-oC-Kan"/>
