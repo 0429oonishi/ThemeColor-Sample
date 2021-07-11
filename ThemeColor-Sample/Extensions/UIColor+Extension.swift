@@ -28,4 +28,17 @@ extension UIColor {
         )
     }
     
+    // UIColor -> それぞれのrgb値
+    var redValue: CGFloat {
+        return self.cgColor.components![0]
+    }
+    
+    var greenValue: CGFloat {
+        return self.cgColor.components![1]
+    }
+    
+    var blueValue: CGFloat {
+        return self.cgColor.components![2]
+    }
+    
 }
