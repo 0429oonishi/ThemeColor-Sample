@@ -22,26 +22,26 @@ final class ColorChoicesConceptViewController: UIViewController {
         var title: String
         var expanded: Bool
     }
-    private struct Row {
-        let colors: [UIColor]
-    }
     private var sections = [Section]()
-    private var rows = [Row]()
-    
+    private var lastTappedSection: Int? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableViewData()
         setupTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupTableViewData()
         
     }
     
     private func setupTableViewData() {
         titles.forEach { title in
             sections.append(Section(title: title, expanded: false))
-        }
-        colors.forEach { colors in
-            rows.append(Row(colors: colors))
         }
     }
     
@@ -57,13 +57,39 @@ final class ColorChoicesConceptViewController: UIViewController {
 
 extension ColorChoicesConceptViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         
     }
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].expanded ? 60 : 0
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
+        let title = sections[section].title
+        headerView.configure(title: title) { [weak self] in
+            self?.tableView.beginUpdates()
+            var indexPaths = [IndexPath(row: 0, section: section)]
+            self?.sections[section].expanded.toggle()
+            if let beforeSection = self?.lastTappedSection,
+               beforeSection != section {
+                self?.sections[beforeSection].expanded = false
+                indexPaths.append(IndexPath(row: 0, section: beforeSection))
+            }
+            self?.tableView.reloadRows(at: indexPaths, with: .automatic)
+            self?.tableView.endUpdates()
+            self?.lastTappedSection = section
+        }
+        return headerView
     }
     
 }
@@ -72,15 +98,20 @@ extension ColorChoicesConceptViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCustomCell(with: AccordionTableViewCell.self)
-        
+        let cell = tableView.dequeueReusableCustomCell(with: AccordionColorTableViewCell.self)
+        cell.selectionStyle = .none
+        let colors = colors[indexPath.section]
+        cell.configure(colors: colors)
         return cell
     }
-    
     
 }

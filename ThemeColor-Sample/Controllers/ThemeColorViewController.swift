@@ -60,6 +60,11 @@ final class ThemeColorViewController: UIViewController {
         containerView.bringSubviewToFront(currentContainerView)
     }
     
+    @IBAction private func saveButtonDidTapped(_ sender: Any) {
+        // MARK: - ToDo 保存処理
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     static func instantiate(containerType: ContainerType,
                             colorConcept: ColorConcept?) -> ThemeColorViewController {
         let themeColorVC = UIStoryboard(
