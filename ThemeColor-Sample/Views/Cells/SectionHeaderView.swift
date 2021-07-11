@@ -17,7 +17,8 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(didTapped))
+        let tapGR = UITapGestureRecognizer(target: self,
+                                           action: #selector(didTapped))
         self.view.addGestureRecognizer(tapGR)
         
     }
