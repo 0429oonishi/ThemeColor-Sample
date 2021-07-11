@@ -13,11 +13,32 @@ enum ContainerType: Int {
     case slider
 }
 
+protocol ThemeColorViewDelegate: AnyObject {
+    func themeColorViewDidTapped(nextSelectedView: UIView)
+}
+
+final class ThemeColorView: UIView {
+    
+    weak var delegate: ThemeColorViewDelegate?
+    var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "checkmark")
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        delegate?.themeColorViewDidTapped(nextSelectedView: self)
+    }
+    
+}
+
 final class ThemeColorViewController: UIViewController {
     
-    @IBOutlet private weak var mainColorView: UIView!
-    @IBOutlet private weak var subColorView: UIView!
-    @IBOutlet private weak var accentColorView: UIView!
+    @IBOutlet private weak var mainColorView: ThemeColorView!
+    @IBOutlet private weak var subColorView: ThemeColorView!
+    @IBOutlet private weak var accentColorView: ThemeColorView!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var segmentedControlBackView: UIView!
     @IBOutlet private weak var containerView: UIView!
@@ -35,23 +56,52 @@ final class ThemeColorViewController: UIViewController {
     }
     private var navTitle = ""
     private var colorConcept: ColorConcept?
+    private var lastSelectedThemeColorView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         containerView.bringSubviewToFront(currentContainerView)
-        if containerType == .concept {
-            segmentedControlBackView.isHidden = true
-            let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
-            colorChoicesConceptVC.colorConcept = colorConcept
-        }
+        
         self.navigationItem.title = navTitle
+
+        mainColorView.delegate = self
+        subColorView.delegate = self
+        accentColorView.delegate = self
+
+        setupImageView(view: mainColorView)
+        setupImageView(view: subColorView)
+        setupImageView(view: accentColorView)
+        mainColorView.imageView.isHidden = false
+        lastSelectedThemeColorView = mainColorView
         
-        if containerType == .tile {
-            let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
-            colorChoicesTileVC.delegate = self
+        NotificationCenter.default.post(name: .findSameColor,
+                                        object: nil,
+                                        userInfo: ["selectedView": mainColorView!])
+        
+        switch containerType {
+            case .concept:
+                segmentedControlBackView.isHidden = true
+                let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
+                colorChoicesConceptVC.colorConcept = colorConcept
+            case .tile:
+                let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
+                colorChoicesTileVC.delegate = self
+            case .slider:
+                break
         }
         
+    }
+    
+    private func setupImageView(view: ThemeColorView) {
+        view.addSubview(view.imageView)
+        NSLayoutConstraint.activate([
+            view.imageView.heightAnchor.constraint(equalToConstant: 50),
+            view.imageView.widthAnchor.constraint(equalToConstant: 50),
+            view.imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            view.imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        view.imageView.isHidden = true
     }
     
     @IBAction private func segmentedControlDidSelected(_ sender: UISegmentedControl) {
@@ -85,8 +135,26 @@ final class ThemeColorViewController: UIViewController {
 extension ThemeColorViewController: ColorChoicesTileVCDelegate {
 
     func tileViewDidTapped(selectedView: UIView) {
-        mainColorView.backgroundColor = selectedView.backgroundColor
-        mainColorView.alpha = selectedView.alpha
+        lastSelectedThemeColorView?.backgroundColor = selectedView.backgroundColor
+        lastSelectedThemeColorView?.alpha = selectedView.alpha
     }
 
+}
+
+extension ThemeColorViewController: ThemeColorViewDelegate {
+    
+    func themeColorViewDidTapped(nextSelectedView: UIView) {
+        let isSameViewDidTapped = (lastSelectedThemeColorView == nextSelectedView)
+        let _nextSelectedView = (nextSelectedView as! ThemeColorView)
+        let _lastSelectedThemeColorView = (lastSelectedThemeColorView as! ThemeColorView)
+        if !isSameViewDidTapped {
+            _nextSelectedView.imageView.isHidden = false
+            _lastSelectedThemeColorView.imageView.isHidden = true
+            NotificationCenter.default.post(name: .findSameColor,
+                                            object: nil,
+                                            userInfo: ["selectedView": nextSelectedView])
+        }
+        self.lastSelectedThemeColorView = nextSelectedView
+    }
+    
 }
