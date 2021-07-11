@@ -9,7 +9,8 @@ import Foundation
 
 extension Notification.Name {
     
-    static let findSameColor = Notification.Name("findSameColor")
+    static let themeColor = Notification.Name("themeColor")
+    static let initTileView = Notification.Name("initTileView")
     
 }
 

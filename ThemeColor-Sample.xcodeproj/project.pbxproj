@@ -178,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				ABF935402689E35500A3F933 /* UIColor+Extension.swift */,
+				ABD819CC269B565400E7D135 /* NotificationName+Extension.swift */,
 				AB526D272690374200DEC581 /* NSObjectProtocol+Extension.swift */,
 				AB526D312690A5CA00DEC581 /* UIViewController+Extension.swift */,
 				AB526D252690372300DEC581 /* UITableViewCell+Extension.swift */,
@@ -185,7 +186,6 @@
 				AB526D292690375C00DEC581 /* UITableView+Extension.swift */,
 				AB526D2B2690377400DEC581 /* UICollectionViewCell+Extension.swift */,
 				AB526D2D2690378500DEC581 /* UICollectionView+Extension.swift */,
-				ABD819CC269B565400E7D135 /* NotificationName+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
