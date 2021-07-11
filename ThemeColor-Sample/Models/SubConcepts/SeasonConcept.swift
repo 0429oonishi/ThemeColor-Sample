@@ -51,7 +51,7 @@ private extension UIColor {
     
     struct Spring {
         static let femininePink = UIColor(hex: "fcebef")
-        static let springPink = UIColor(hex: "ef8893")
+        static let springPink = UIColor(hex: "f6c0d1")
         static let newColorPink = UIColor(hex: "ef8893")
     }
     struct Summer {
