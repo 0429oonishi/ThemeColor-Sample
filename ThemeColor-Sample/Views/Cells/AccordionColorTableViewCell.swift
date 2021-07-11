@@ -7,8 +7,12 @@
 
 import UIKit
 
-class AccordionColorTableViewCell: UITableViewCell {
+final class AccordionColorTableViewCell: UITableViewCell {
 
+    @IBOutlet private weak var leftTileView: ThemeColorTileView!
+    @IBOutlet private weak var centerTileView: ThemeColorTileView!
+    @IBOutlet private weak var rightTileView: ThemeColorTileView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +22,12 @@ class AccordionColorTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(colors: [UIColor]) {
+        leftTileView.backgroundColor = colors[0]
+        centerTileView.backgroundColor = colors[1]
+        rightTileView.backgroundColor = colors[2]
     }
     
 }
