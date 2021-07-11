@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension Notification.Name {
+    
+    static let findSameColor = Notification.Name("findSameColor")
+    
+}
+
