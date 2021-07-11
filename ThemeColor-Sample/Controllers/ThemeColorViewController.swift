@@ -64,18 +64,18 @@ final class ThemeColorViewController: UIViewController {
         containerView.bringSubviewToFront(currentContainerView)
         
         self.navigationItem.title = navTitle
-
+        
         mainColorView.delegate = self
         subColorView.delegate = self
         accentColorView.delegate = self
-
+        
         setupImageView(view: mainColorView)
         setupImageView(view: subColorView)
         setupImageView(view: accentColorView)
         mainColorView.imageView.isHidden = false
         lastSelectedThemeColorView = mainColorView
         
-        NotificationCenter.default.post(name: .findSameColor,
+        NotificationCenter.default.post(name: .themeColor,
                                         object: nil,
                                         userInfo: ["selectedView": mainColorView!])
         
@@ -84,11 +84,11 @@ final class ThemeColorViewController: UIViewController {
                 segmentedControlBackView.isHidden = true
                 let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
                 colorChoicesConceptVC.colorConcept = colorConcept
-            case .tile:
+            case .tile, .slider:
                 let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
                 colorChoicesTileVC.delegate = self
-            case .slider:
-                break
+                let colorChoicesSliderVC = self.children[2] as! ColorChoicesSliderViewController
+                colorChoicesSliderVC.delegate = self
         }
         
     }
@@ -133,12 +133,21 @@ final class ThemeColorViewController: UIViewController {
 }
 
 extension ThemeColorViewController: ColorChoicesTileVCDelegate {
-
+    
     func tileViewDidTapped(selectedView: UIView) {
         lastSelectedThemeColorView?.backgroundColor = selectedView.backgroundColor
         lastSelectedThemeColorView?.alpha = selectedView.alpha
     }
+    
+}
 
+extension ThemeColorViewController: ColorChoicesSliderVCDelegate {
+    
+    func sliderValueDidChanged(view: UIView) {
+        lastSelectedThemeColorView?.backgroundColor = view.backgroundColor
+        lastSelectedThemeColorView?.alpha = view.alpha
+    }
+    
 }
 
 extension ThemeColorViewController: ThemeColorViewDelegate {
@@ -150,7 +159,7 @@ extension ThemeColorViewController: ThemeColorViewDelegate {
         if !isSameViewDidTapped {
             _nextSelectedView.imageView.isHidden = false
             _lastSelectedThemeColorView.imageView.isHidden = true
-            NotificationCenter.default.post(name: .findSameColor,
+            NotificationCenter.default.post(name: .themeColor,
                                             object: nil,
                                             userInfo: ["selectedView": nextSelectedView])
         }
@@ -158,3 +167,4 @@ extension ThemeColorViewController: ThemeColorViewDelegate {
     }
     
 }
+

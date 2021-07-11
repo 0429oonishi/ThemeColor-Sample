@@ -42,16 +42,20 @@ final class ColorChoicesTileViewController: UIViewController {
     }
     private var selectedTileView: UIView?
     weak var delegate: ColorChoicesTileVCDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTileViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(findSameColorTileView),
-                                               name: .findSameColor,
+                                               name: .themeColor,
                                                object: nil)
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(initTileView),
+                                               name: .initTileView,
+                                               object: nil)
+        
     }
     
     private func setupTileViews() {
@@ -79,12 +83,19 @@ final class ColorChoicesTileViewController: UIViewController {
         }
     }
     
+    @objc private func initTileView() {
+        selectedTileView?.layer.cornerRadius = 0
+    }
+    
 }
 
 extension ColorChoicesTileViewController: ThemeColorTileViewDelegate {
     
     func tileViewDidTapped(selectedView: UIView) {
         delegate?.tileViewDidTapped(selectedView: selectedView)
+        NotificationCenter.default.post(name: .themeColor,
+                                        object: nil,
+                                        userInfo: ["selectedView": selectedView])
         UIView.animate(withDuration: 0.1) {
             if self.selectedTileView != selectedView {
                 self.selectedTileView?.layer.cornerRadius = 0
@@ -94,3 +105,4 @@ extension ColorChoicesTileViewController: ThemeColorTileViewDelegate {
     }
     
 }
+
