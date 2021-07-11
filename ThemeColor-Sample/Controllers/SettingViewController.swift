@@ -7,25 +7,23 @@
 
 import UIKit
 
-struct Section {
-    var title: String
-    var expanded: Bool
-    static let data = [Section(title: "A", expanded: false),
-                       Section(title: "テーマカラー", expanded: false),
-                       Section(title: "B", expanded: false),
-                       Section(title: "C", expanded: false)]
-}
-
-struct Row {
-    let title: String
-    static let data = [Row(title: "セルフ"),
-                       Row(title: "オススメ")]
-}
-
 final class SettingViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private struct Section {
+        var title: String
+        var expanded: Bool
+        static let data = [Section(title: "A", expanded: false),
+                          Section(title: "テーマカラー", expanded: false),
+                          Section(title: "B", expanded: false),
+                          Section(title: "C", expanded: false)]
+    }
+    private struct Row {
+        let title: String
+        static let data = [Row(title: "セルフ"),
+                           Row(title: "オススメ")]
+    }
     private var sections = Section.data
     private let rows = Row.data
     
@@ -39,7 +37,7 @@ final class SettingViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerCustomCell(CustomThemeColorTableViewCell.self)
+        tableView.registerCustomCell(AccordionTableViewCell.self)
         tableView.registerCustomCell(SectionHeaderView.self)
         tableView.tableFooterView = UIView()
     }
@@ -72,8 +70,8 @@ extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
-        let mySection = sections[section]
-        headerView.configure(section: mySection) { [weak self] in
+        let title = sections[section].title
+        headerView.configure(title: title) { [weak self] in
             if self?.sections[section].title == "テーマカラー" {
                 self?.sections[section].expanded.toggle()
                 self?.tableView.beginUpdates()
@@ -108,7 +106,7 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCustomCell(with: CustomThemeColorTableViewCell.self)
+        let cell = tableView.dequeueReusableCustomCell(with: AccordionTableViewCell.self)
         let row = rows[indexPath.row]
         cell.configure(row: row)
         return cell

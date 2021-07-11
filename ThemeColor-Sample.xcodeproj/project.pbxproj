@@ -14,8 +14,6 @@
 		AB526CD9268B842500DEC581 /* ColorChoicesConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CD8268B842500DEC581 /* ColorChoicesConceptViewController.swift */; };
 		AB526CDB268B847D00DEC581 /* ColorChoicesTileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CDA268B847D00DEC581 /* ColorChoicesTileViewController.swift */; };
 		AB526CDD268B849E00DEC581 /* ColorChoicesSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */; };
-		AB526D11268CE55800DEC581 /* ColorSubConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */; };
-		AB526D12268CE55800DEC581 /* ColorSubConceptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */; };
 		AB526D15268E497F00DEC581 /* NaturalConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D14268E497F00DEC581 /* NaturalConcept.swift */; };
 		AB526D17268E527700DEC581 /* PopConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D16268E527700DEC581 /* PopConcept.swift */; };
 		AB526D1A268E52EE00DEC581 /* ElegantConcept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D19268E52EE00DEC581 /* ElegantConcept.swift */; };
@@ -30,6 +28,8 @@
 		AB526D2E2690378500DEC581 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D2D2690378500DEC581 /* UICollectionView+Extension.swift */; };
 		AB526D302690381200DEC581 /* UITableViewHeaderFooterView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D2F2690381200DEC581 /* UITableViewHeaderFooterView+Extension.swift */; };
 		AB526D322690A5CA00DEC581 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526D312690A5CA00DEC581 /* UIViewController+Extension.swift */; };
+		ABA34375269B0548004E0531 /* AccordionColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA34373269B0548004E0531 /* AccordionColorTableViewCell.swift */; };
+		ABA34376269B0548004E0531 /* AccordionColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA34374269B0548004E0531 /* AccordionColorTableViewCell.xib */; };
 		ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF935282689E25A00A3F933 /* AppDelegate.swift */; };
 		ABF9352B2689E25A00A3F933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */; };
 		ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9352E2689E25A00A3F933 /* Setting.storyboard */; };
@@ -43,8 +43,8 @@
 		ABF9354B268A02C000A3F933 /* ColorConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9354A268A02C000A3F933 /* ColorConceptViewController.swift */; };
 		ABF9354D268A06EC00A3F933 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9354C268A06EC00A3F933 /* SectionHeaderView.swift */; };
 		ABF9354F268A071D00A3F933 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF9354E268A071D00A3F933 /* SectionHeaderView.xib */; };
-		ABF93552268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF93550268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift */; };
-		ABF93553268A0B1A00A3F933 /* CustomThemeColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF93551268A0B1A00A3F933 /* CustomThemeColorTableViewCell.xib */; };
+		ABF93552268A0B1A00A3F933 /* AccordionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF93550268A0B1A00A3F933 /* AccordionTableViewCell.swift */; };
+		ABF93553268A0B1A00A3F933 /* AccordionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF93551268A0B1A00A3F933 /* AccordionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,6 @@
 		AB526CD8268B842500DEC581 /* ColorChoicesConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesConceptViewController.swift; sourceTree = "<group>"; };
 		AB526CDA268B847D00DEC581 /* ColorChoicesTileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesTileViewController.swift; sourceTree = "<group>"; };
 		AB526CDC268B849E00DEC581 /* ColorChoicesSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoicesSliderViewController.swift; sourceTree = "<group>"; };
-		AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSubConceptTableViewCell.swift; sourceTree = "<group>"; };
-		AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSubConceptTableViewCell.xib; sourceTree = "<group>"; };
 		AB526D14268E497F00DEC581 /* NaturalConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalConcept.swift; sourceTree = "<group>"; };
 		AB526D16268E527700DEC581 /* PopConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopConcept.swift; sourceTree = "<group>"; };
 		AB526D19268E52EE00DEC581 /* ElegantConcept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegantConcept.swift; sourceTree = "<group>"; };
@@ -71,6 +69,8 @@
 		AB526D2D2690378500DEC581 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		AB526D2F2690381200DEC581 /* UITableViewHeaderFooterView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Extension.swift"; sourceTree = "<group>"; };
 		AB526D312690A5CA00DEC581 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		ABA34373269B0548004E0531 /* AccordionColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionColorTableViewCell.swift; sourceTree = "<group>"; };
+		ABA34374269B0548004E0531 /* AccordionColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccordionColorTableViewCell.xib; sourceTree = "<group>"; };
 		ABF935252689E25A00A3F933 /* ThemeColor-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ThemeColor-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF935282689E25A00A3F933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF9352A2689E25A00A3F933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 		ABF9354A268A02C000A3F933 /* ColorConceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConceptViewController.swift; sourceTree = "<group>"; };
 		ABF9354C268A06EC00A3F933 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		ABF9354E268A071D00A3F933 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
-		ABF93550268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeColorTableViewCell.swift; sourceTree = "<group>"; };
-		ABF93551268A0B1A00A3F933 /* CustomThemeColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomThemeColorTableViewCell.xib; sourceTree = "<group>"; };
+		ABF93550268A0B1A00A3F933 /* AccordionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionTableViewCell.swift; sourceTree = "<group>"; };
+		ABF93551268A0B1A00A3F933 /* AccordionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccordionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,12 +116,12 @@
 			children = (
 				ABF9354C268A06EC00A3F933 /* SectionHeaderView.swift */,
 				ABF9354E268A071D00A3F933 /* SectionHeaderView.xib */,
-				ABF93550268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift */,
-				ABF93551268A0B1A00A3F933 /* CustomThemeColorTableViewCell.xib */,
+				ABF93550268A0B1A00A3F933 /* AccordionTableViewCell.swift */,
+				ABF93551268A0B1A00A3F933 /* AccordionTableViewCell.xib */,
+				ABA34373269B0548004E0531 /* AccordionColorTableViewCell.swift */,
+				ABA34374269B0548004E0531 /* AccordionColorTableViewCell.xib */,
 				AB526CD4268B63B100DEC581 /* ColorConceptTableViewCell.swift */,
 				AB526CD5268B63B100DEC581 /* ColorConceptTableViewCell.xib */,
-				AB526D0F268CE55800DEC581 /* ColorSubConceptTableViewCell.swift */,
-				AB526D10268CE55800DEC581 /* ColorSubConceptTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,14 +276,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABF93553268A0B1A00A3F933 /* CustomThemeColorTableViewCell.xib in Resources */,
+				ABF93553268A0B1A00A3F933 /* AccordionTableViewCell.xib in Resources */,
 				AB526CD3268B5D7900DEC581 /* ThemeColor.storyboard in Resources */,
 				ABF935352689E25B00A3F933 /* LaunchScreen.storyboard in Resources */,
 				ABF935322689E25B00A3F933 /* Assets.xcassets in Resources */,
 				AB526CD7268B63B100DEC581 /* ColorConceptTableViewCell.xib in Resources */,
 				AB526CD0268B5D5500DEC581 /* ColorConcept.storyboard in Resources */,
-				AB526D12268CE55800DEC581 /* ColorSubConceptTableViewCell.xib in Resources */,
 				ABF935302689E25A00A3F933 /* Setting.storyboard in Resources */,
+				ABA34376269B0548004E0531 /* AccordionColorTableViewCell.xib in Resources */,
 				ABF9354F268A071D00A3F933 /* SectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +305,6 @@
 				ABF93549268A021400A3F933 /* ThemeColorViewController.swift in Sources */,
 				AB526D262690372300DEC581 /* UITableViewCell+Extension.swift in Sources */,
 				AB526D20268E5C1D00DEC581 /* JapanConcept.swift in Sources */,
-				AB526D11268CE55800DEC581 /* ColorSubConceptTableViewCell.swift in Sources */,
 				AB526D302690381200DEC581 /* UITableViewHeaderFooterView+Extension.swift in Sources */,
 				AB526D282690374200DEC581 /* NSObjectProtocol+Extension.swift in Sources */,
 				ABF935292689E25A00A3F933 /* AppDelegate.swift in Sources */,
@@ -317,8 +316,9 @@
 				AB526D1E268E588A00DEC581 /* SeasonConcept.swift in Sources */,
 				AB526D2E2690378500DEC581 /* UICollectionView+Extension.swift in Sources */,
 				AB526D2A2690375C00DEC581 /* UITableView+Extension.swift in Sources */,
+				ABA34375269B0548004E0531 /* AccordionColorTableViewCell.swift in Sources */,
 				AB526CDB268B847D00DEC581 /* ColorChoicesTileViewController.swift in Sources */,
-				ABF93552268A0B1A00A3F933 /* CustomThemeColorTableViewCell.swift in Sources */,
+				ABF93552268A0B1A00A3F933 /* AccordionTableViewCell.swift in Sources */,
 				AB526CD6268B63B100DEC581 /* ColorConceptTableViewCell.swift in Sources */,
 				ABF9353F2689E32A00A3F933 /* ColorConcept.swift in Sources */,
 				ABF93547268A01E700A3F933 /* SettingViewController.swift in Sources */,
