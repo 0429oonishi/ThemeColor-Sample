@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ColorChoicesConceptVCDelegate: AnyObject {
+    func subConceptTileViewDidTapped(view: UIView)
+    func subConceptTitleDidTapped(isExpanded: Bool)
+}
+
 final class ColorChoicesConceptViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
@@ -24,7 +29,8 @@ final class ColorChoicesConceptViewController: UIViewController {
     }
     private var sections = [Section]()
     private var lastTappedSection: Int? = nil
-
+    weak var delegate: ColorChoicesConceptVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,11 +64,6 @@ final class ColorChoicesConceptViewController: UIViewController {
 extension ColorChoicesConceptViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].expanded ? 60 : 0
     }
@@ -77,17 +78,20 @@ extension ColorChoicesConceptViewController: UITableViewDelegate {
         let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
         let title = sections[section].title
         headerView.configure(title: title) { [weak self] in
-            self?.tableView.beginUpdates()
+            guard let self = self else { return }
+            self.tableView.beginUpdates()
             var indexPaths = [IndexPath(row: 0, section: section)]
-            self?.sections[section].expanded.toggle()
-            if let beforeSection = self?.lastTappedSection,
+            self.sections[section].expanded.toggle()
+            if let beforeSection = self.lastTappedSection,
                beforeSection != section {
-                self?.sections[beforeSection].expanded = false
+                self.sections[beforeSection].expanded = false
                 indexPaths.append(IndexPath(row: 0, section: beforeSection))
             }
-            self?.tableView.reloadRows(at: indexPaths, with: .automatic)
-            self?.tableView.endUpdates()
-            self?.lastTappedSection = section
+            self.tableView.reloadRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
+            self.lastTappedSection = section
+            let isExpanded = self.sections[section].expanded
+            self.delegate?.subConceptTitleDidTapped(isExpanded: isExpanded)
         }
         return headerView
     }
@@ -110,7 +114,9 @@ extension ColorChoicesConceptViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCustomCell(with: AccordionColorTableViewCell.self)
         cell.selectionStyle = .none
         let colors = colors[indexPath.section]
-        cell.configure(colors: colors)
+        cell.configure(colors: colors) { view in
+            self.delegate?.subConceptTileViewDidTapped(view: view)
+        }
         return cell
     }
     
