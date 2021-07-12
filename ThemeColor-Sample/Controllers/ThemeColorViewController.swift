@@ -172,31 +172,33 @@ extension ThemeColorViewController: ColorChoicesConceptVCDelegate {
     func subConceptTileViewDidTapped(view: UIView) {
         lastSelectedThemeColorView?.backgroundColor = view.backgroundColor
         lastSelectedThemeColorView?.alpha = view.alpha
-        switch scheme {
-            case .main:
-                mainColorView.hideImage(true)
-                subColorView.hideImage(false)
-                lastSelectedThemeColorView = subColorView
-                scheme = .sub
-            case .sub:
-                subColorView.hideImage(true)
-                accentColorView.hideImage(false)
-                lastSelectedThemeColorView = accentColorView
-                scheme = .accent
-            case .accent:
-                accentColorView.hideImage(true)
-                mainColorView.hideImage(true)
-                lastSelectedThemeColorView = nil
-        }
-        
+        mainColorView.hideImage(true)
+        subColorView.hideImage({ scheme != .main }())
+        accentColorView.hideImage({ scheme != .sub }())
+        switchTheme(scheme: scheme)
     }
     
     func subConceptTitleDidTapped(isExpanded: Bool) {
         mainColorView.hideImage(!isExpanded)
         subColorView.hideImage(true)
         accentColorView.hideImage(true)
-        lastSelectedThemeColorView = mainColorView
-        scheme = .main
+        switchTheme()
+    }
+    
+    private func switchTheme(scheme: ColorSchemeType? = nil) {
+        switch scheme {
+            case .main:
+                lastSelectedThemeColorView = subColorView
+                self.scheme = .sub
+            case .sub:
+                lastSelectedThemeColorView = accentColorView
+                self.scheme = .accent
+            case .accent:
+                lastSelectedThemeColorView = nil
+            case nil:
+                lastSelectedThemeColorView = mainColorView
+                self.scheme = .main
+        }
     }
     
 }
