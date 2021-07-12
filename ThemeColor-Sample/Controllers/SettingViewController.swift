@@ -10,6 +10,9 @@ import UIKit
 final class SettingViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var accentView: UIView!
     
     private struct Section {
         var title: String
@@ -31,6 +34,15 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mainView.backgroundColor = .red
+        subView.backgroundColor = .blue
+        accentView.backgroundColor = .yellow
         
     }
     
