@@ -7,14 +7,45 @@
 
 import UIKit
 
-struct ThemeColor {
-    var main: UIColor
-    var sub: UIColor
-    var accent: UIColor
-    
-    init(main: UIColor, sub: UIColor, accent: UIColor) {
-        self.main = main
-        self.sub = sub
-        self.accent = accent
+enum ThemeColorType {
+    case main
+    case sub
+    case accent
+    var key: String {
+        switch self {
+            case .main: return "mainKey"
+            case .sub: return "subKey"
+            case .accent: return "accentKey"
+        }
     }
+}
+
+struct ThemeColor {
+    static var main: UIColor {
+        return UserDefaults.standard.loadColor(.main) ?? .white
+    }
+    static var sub: UIColor {
+        return UserDefaults.standard.loadColor(.sub) ?? .white
+    }
+    static var accent: UIColor {
+        return UserDefaults.standard.loadColor(.accent) ?? .white
+    }
+}
+
+extension UserDefaults {
+     
+    func loadColor(_ themeColorType: ThemeColorType) -> UIColor? {
+        guard let colorData = self.data(forKey: themeColorType.key),
+              let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor
+        else { return nil }
+        return color
+    }
+    
+    func save(color: UIColor?, _ themeColorType: ThemeColorType) {
+        guard let color = color else { fatalError("color is nil") }
+        let colorData = try! NSKeyedArchiver.archivedData(withRootObject: color,
+                                                          requiringSecureCoding: false) as NSData?
+        self.set(colorData, forKey: themeColorType.key)
+    }
+    
 }

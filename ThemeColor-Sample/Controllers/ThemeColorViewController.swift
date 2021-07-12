@@ -86,10 +86,6 @@ final class ThemeColorViewController: UIViewController {
         mainColorView.imageView.isHidden = false
         lastSelectedThemeColorView = mainColorView
         
-        NotificationCenter.default.post(name: .themeColor,
-                                        object: nil,
-                                        userInfo: ["selectedView": mainColorView!])
-        
         switch containerType {
             case .concept:
                 segmentedControlBackView.isHidden = true
@@ -107,6 +103,21 @@ final class ThemeColorViewController: UIViewController {
                 let colorChoicesSliderVC = self.children[2] as! ColorChoicesSliderViewController
                 colorChoicesSliderVC.delegate = self
         }
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mainColorView.backgroundColor = ThemeColor.main
+        subColorView.backgroundColor = ThemeColor.sub
+        accentColorView.backgroundColor = ThemeColor.accent
+        
+        NotificationCenter.default.post(name: .themeColor,
+                                        object: nil,
+                                        userInfo: ["selectedView": mainColorView!])
         
     }
     
@@ -128,7 +139,9 @@ final class ThemeColorViewController: UIViewController {
     }
     
     @IBAction private func saveButtonDidTapped(_ sender: Any) {
-        // MARK: - ToDo 保存処理
+        UserDefaults.standard.save(color: mainColorView.backgroundColor, .main)
+        UserDefaults.standard.save(color: subColorView.backgroundColor, .sub)
+        UserDefaults.standard.save(color: accentColorView.backgroundColor, .accent)
         self.navigationController?.popToRootViewController(animated: true)
     }
     

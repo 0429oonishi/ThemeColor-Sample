@@ -59,10 +59,16 @@ final class ColorChoicesTileViewController: UIViewController {
     }
     
     private func setupTileViews() {
+        var alpha: CGFloat = 1
         tileStackViews.forEach { stackView in
             stackView.arrangedSubviews
                 .map { $0 as! ThemeColorTileView }
-                .forEach { $0.delegate = self }
+                .forEach {
+                    $0.delegate = self
+                    $0.alpha = alpha
+                    alpha -= 0.1
+                }
+            alpha = 1
         }
     }
     

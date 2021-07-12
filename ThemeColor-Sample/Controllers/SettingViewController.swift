@@ -40,9 +40,9 @@ final class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        mainView.backgroundColor = .red
-        subView.backgroundColor = .blue
-        accentView.backgroundColor = .yellow
+        mainView.backgroundColor = ThemeColor.main
+        subView.backgroundColor = ThemeColor.sub
+        accentView.backgroundColor = ThemeColor.accent
         
     }
     
