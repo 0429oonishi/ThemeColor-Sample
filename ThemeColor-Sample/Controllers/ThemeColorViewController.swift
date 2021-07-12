@@ -13,6 +13,12 @@ enum ContainerType: Int {
     case slider
 }
 
+enum ColorSchemeType {
+    case main
+    case sub
+    case accent
+}
+
 protocol ThemeColorViewDelegate: AnyObject {
     func themeColorViewDidTapped(nextSelectedView: UIView)
 }
@@ -30,6 +36,10 @@ final class ThemeColorView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.themeColorViewDidTapped(nextSelectedView: self)
+    }
+    
+    func hideImage(_ isHidden: Bool) {
+        imageView.isHidden = isHidden
     }
     
 }
@@ -57,6 +67,7 @@ final class ThemeColorViewController: UIViewController {
     private var navTitle = ""
     private var colorConcept: ColorConcept?
     private var lastSelectedThemeColorView: UIView?
+    private var scheme: ColorSchemeType = .main
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,9 +95,15 @@ final class ThemeColorViewController: UIViewController {
                 segmentedControlBackView.isHidden = true
                 let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
                 colorChoicesConceptVC.colorConcept = colorConcept
+                colorChoicesConceptVC.delegate = self
+                mainColorView.isUserInteractionEnabled = false
+                subColorView.isUserInteractionEnabled = false
+                accentColorView.isUserInteractionEnabled = false
+                
             case .tile, .slider:
                 let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
                 colorChoicesTileVC.delegate = self
+                
                 let colorChoicesSliderVC = self.children[2] as! ColorChoicesSliderViewController
                 colorChoicesSliderVC.delegate = self
         }
@@ -150,9 +167,44 @@ extension ThemeColorViewController: ColorChoicesSliderVCDelegate {
     
 }
 
+extension ThemeColorViewController: ColorChoicesConceptVCDelegate {
+    
+    func subConceptTileViewDidTapped(view: UIView) {
+        lastSelectedThemeColorView?.backgroundColor = view.backgroundColor
+        lastSelectedThemeColorView?.alpha = view.alpha
+        switch scheme {
+            case .main:
+                mainColorView.hideImage(true)
+                subColorView.hideImage(false)
+                lastSelectedThemeColorView = subColorView
+                scheme = .sub
+            case .sub:
+                subColorView.hideImage(true)
+                accentColorView.hideImage(false)
+                lastSelectedThemeColorView = accentColorView
+                scheme = .accent
+            case .accent:
+                accentColorView.hideImage(true)
+                mainColorView.hideImage(true)
+                lastSelectedThemeColorView = nil
+        }
+        
+    }
+    
+    func subConceptTitleDidTapped(isExpanded: Bool) {
+        mainColorView.hideImage(!isExpanded)
+        subColorView.hideImage(true)
+        accentColorView.hideImage(true)
+        lastSelectedThemeColorView = mainColorView
+        scheme = .main
+    }
+    
+}
+
 extension ThemeColorViewController: ThemeColorViewDelegate {
     
     func themeColorViewDidTapped(nextSelectedView: UIView) {
+        guard lastSelectedThemeColorView != nil else { return }
         let isSameViewDidTapped = (lastSelectedThemeColorView == nextSelectedView)
         let _nextSelectedView = (nextSelectedView as! ThemeColorView)
         let _lastSelectedThemeColorView = (lastSelectedThemeColorView as! ThemeColorView)
@@ -163,8 +215,7 @@ extension ThemeColorViewController: ThemeColorViewDelegate {
                                             object: nil,
                                             userInfo: ["selectedView": nextSelectedView])
         }
-        self.lastSelectedThemeColorView = nextSelectedView
+        lastSelectedThemeColorView = nextSelectedView
     }
     
 }
-
