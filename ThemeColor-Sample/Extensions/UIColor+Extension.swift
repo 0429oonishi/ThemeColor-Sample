@@ -28,6 +28,21 @@ extension UIColor {
         )
     }
     
+    // 0 〜　255で入力可能
+    static func rgba(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+        let rgb = [red, green, blue].map { value -> CGFloat in
+            if value < 0 { return 0 }
+            if value > 255 { return 1 }
+            return value / 255
+        }
+        let alpha: CGFloat = {
+            if alpha > 100 { return 1 }
+            if alpha < 0 { return 0 }
+            return CGFloat(alpha) / 100
+        }()
+        return self.init(red: rgb[0], green: rgb[1], blue: rgb[2], alpha: alpha)
+    }
+    
     // UIColor -> それぞれのrgb値
     var redValue: CGFloat {
         return self.cgColor.components![0]
