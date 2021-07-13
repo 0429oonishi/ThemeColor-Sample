@@ -122,8 +122,8 @@ final class ThemeColorViewController: UIViewController {
     private func setupImageView(view: ThemeColorView) {
         view.addSubview(view.imageView)
         NSLayoutConstraint.activate([
-            view.imageView.heightAnchor.constraint(equalToConstant: 50),
-            view.imageView.widthAnchor.constraint(equalToConstant: 50),
+            view.imageView.heightAnchor.constraint(equalToConstant: 40),
+            view.imageView.widthAnchor.constraint(equalToConstant: 40),
             view.imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             view.imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
