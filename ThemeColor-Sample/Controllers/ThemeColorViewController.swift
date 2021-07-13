@@ -28,7 +28,7 @@ final class ThemeColorView: UIView {
     weak var delegate: ThemeColorViewDelegate?
     var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "checkmark")
+        imageView.image = UIImage(systemName: "eyedropper")
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -103,8 +103,6 @@ final class ThemeColorViewController: UIViewController {
                 let colorChoicesSliderVC = self.children[2] as! ColorChoicesSliderViewController
                 colorChoicesSliderVC.delegate = self
         }
-        
-        
         
     }
     
