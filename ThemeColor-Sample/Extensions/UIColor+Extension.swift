@@ -45,15 +45,31 @@ extension UIColor {
     
     // UIColor -> それぞれのrgb値
     var redValue: CGFloat {
-        return self.cgColor.components![0]
+        return getRed().red
     }
     
     var greenValue: CGFloat {
-        return self.cgColor.components![1]
+        return getRed().green
     }
     
     var blueValue: CGFloat {
-        return self.cgColor.components![2]
+        return getRed().blue
+    }
+    
+    var alphaValue: CGFloat {
+        return getRed().alpha
+    }
+    
+    private func getRed() -> (red: CGFloat,
+                              green: CGFloat,
+                              blue: CGFloat,
+                              alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        return (red: red, green: green, blue: blue, alpha: alpha)
     }
     
 }
