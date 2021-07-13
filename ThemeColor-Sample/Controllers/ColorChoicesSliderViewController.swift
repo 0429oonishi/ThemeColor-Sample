@@ -44,7 +44,7 @@ final class ColorChoicesSliderViewController: UIViewController {
         redValue = round(nextSelectedView.backgroundColor!.redValue * 255)
         greenValue = round(nextSelectedView.backgroundColor!.greenValue * 255)
         blueValue = round(nextSelectedView.backgroundColor!.blueValue * 255)
-        alpha = (round(nextSelectedView.alpha * 10) / 10) * 100
+        alpha = (round(nextSelectedView.backgroundColor!.cgColor.alpha * 10) / 10) * 100
         sliderView = UIView()
         redNumberLabel.text = String(Int(redValue))
         greenNumberLabel.text = String(Int(greenValue))
