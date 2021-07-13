@@ -22,18 +22,54 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfI-wP-0hj" customClass="ThemeColorView" customModule="ThemeColor_Sample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="199.5" height="160"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メイン" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxd-4T-Mob">
+                                                <rect key="frame" x="5" y="5" width="64.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Jxd-4T-Mob" firstAttribute="top" secondItem="nfI-wP-0hj" secondAttribute="top" constant="5" id="NPI-pG-KWz"/>
+                                            <constraint firstItem="Jxd-4T-Mob" firstAttribute="leading" secondItem="nfI-wP-0hj" secondAttribute="leading" constant="5" id="tNz-UR-rIX"/>
+                                        </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qa5-1L-qPS">
                                         <rect key="frame" x="204.5" y="0.0" width="199.5" height="160"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWq-zr-HV0" customClass="ThemeColorView" customModule="ThemeColor_Sample" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="199.5" height="77.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="サブ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuj-bU-ebL">
+                                                        <rect key="frame" x="5" y="5" width="37" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="tuj-bU-ebL" firstAttribute="top" secondItem="FWq-zr-HV0" secondAttribute="top" constant="5" id="P2h-FA-Qn9"/>
+                                                    <constraint firstItem="tuj-bU-ebL" firstAttribute="leading" secondItem="FWq-zr-HV0" secondAttribute="leading" constant="5" id="Z5w-8b-gOv"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a42-HT-Y4I" customClass="ThemeColorView" customModule="ThemeColor_Sample" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="82.5" width="199.5" height="77.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アクセント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj4-cc-bc6">
+                                                        <rect key="frame" x="5" y="5" width="82" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="pj4-cc-bc6" firstAttribute="leading" secondItem="a42-HT-Y4I" secondAttribute="leading" constant="5" id="aec-1F-je6"/>
+                                                    <constraint firstItem="pj4-cc-bc6" firstAttribute="top" secondItem="a42-HT-Y4I" secondAttribute="top" constant="5" id="isi-TE-K0R"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
