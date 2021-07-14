@@ -29,7 +29,7 @@ final class ThemeColorView: UIView {
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "eyedropper")
-        imageView.tintColor = .white
+        imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -83,7 +83,7 @@ final class ThemeColorViewController: UIViewController {
         setupImageView(view: mainColorView)
         setupImageView(view: subColorView)
         setupImageView(view: accentColorView)
-        mainColorView.imageView.isHidden = false
+        mainColorView.hideImage(false)
         lastSelectedThemeColorView = mainColorView
         
         switch containerType {
@@ -112,6 +112,9 @@ final class ThemeColorViewController: UIViewController {
         mainColorView.backgroundColor = ThemeColor.main
         subColorView.backgroundColor = ThemeColor.sub
         accentColorView.backgroundColor = ThemeColor.accent
+        setThemeSubViewColor(view: mainColorView)
+        setThemeSubViewColor(view: subColorView)
+        setThemeSubViewColor(view: accentColorView)
         
         NotificationCenter.default.post(name: .themeColor,
                                         object: nil,
@@ -128,6 +131,22 @@ final class ThemeColorViewController: UIViewController {
             view.imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         view.imageView.isHidden = true
+    }
+    
+    private func setThemeSubViewColor(view: ThemeColorView) {
+        guard let color = view.backgroundColor else { fatalError() }
+        view.subviews.forEach { view in
+            let shouldWhite = (color.redValue < 0.4
+                                && color.greenValue < 0.4
+                                && color.blueValue < 0.4
+                                && color.alphaValue > 0.5)
+            if let imageView = view as? UIImageView {
+                imageView.tintColor = { shouldWhite ? .white : .black }()
+            }
+            if let label = view as? UILabel {
+                label.textColor = { shouldWhite ? .white : .black }()
+            }
+        }
     }
     
     @IBAction private func segmentedControlDidSelected(_ sender: UISegmentedControl) {
@@ -165,6 +184,7 @@ extension ThemeColorViewController: ColorChoicesTileVCDelegate {
     func tileViewDidTapped(selectedView: UIView) {
         lastSelectedThemeColorView?.backgroundColor = selectedView.backgroundColor
         lastSelectedThemeColorView?.alpha = selectedView.alpha
+        setThemeSubViewColor(view: lastSelectedThemeColorView as! ThemeColorView)
     }
     
 }
@@ -174,6 +194,7 @@ extension ThemeColorViewController: ColorChoicesSliderVCDelegate {
     func sliderValueDidChanged(view: UIView) {
         lastSelectedThemeColorView?.backgroundColor = view.backgroundColor
         lastSelectedThemeColorView?.alpha = view.alpha
+        setThemeSubViewColor(view: lastSelectedThemeColorView as! ThemeColorView)
     }
     
 }
@@ -222,12 +243,13 @@ extension ThemeColorViewController: ThemeColorViewDelegate {
         let _nextSelectedView = (nextSelectedView as! ThemeColorView)
         let _lastSelectedThemeColorView = (lastSelectedThemeColorView as! ThemeColorView)
         if !isSameViewDidTapped {
-            _nextSelectedView.imageView.isHidden = false
-            _lastSelectedThemeColorView.imageView.isHidden = true
+            _nextSelectedView.hideImage(false)
+            _lastSelectedThemeColorView.hideImage(true)
             NotificationCenter.default.post(name: .themeColor,
                                             object: nil,
                                             userInfo: ["selectedView": nextSelectedView])
         }
+        setThemeSubViewColor(view: _nextSelectedView)
         lastSelectedThemeColorView = nextSelectedView
     }
     
