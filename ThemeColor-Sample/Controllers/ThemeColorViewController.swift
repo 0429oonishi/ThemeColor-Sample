@@ -66,7 +66,7 @@ final class ThemeColorViewController: UIViewController {
     }
     private var navTitle = ""
     private var colorConcept: ColorConcept?
-    private var lastSelectedThemeColorView: UIView?
+    private var lastSelectedThemeColorView: ThemeColorView?
     private var scheme: ColorSchemeType = .main
     
     override func viewDidLoad() {
@@ -133,9 +133,9 @@ final class ThemeColorViewController: UIViewController {
         view.imageView.isHidden = true
     }
     
-    private func setThemeSubViewColor(view: ThemeColorView) {
-        guard let color = view.backgroundColor else { fatalError() }
-        view.subviews.forEach { view in
+    private func setThemeSubViewColor(view: ThemeColorView?) {
+        guard let color = view?.backgroundColor else { fatalError() }
+        view?.subviews.forEach { view in
             let shouldWhite = (color.redValue < 0.4
                                 && color.greenValue < 0.4
                                 && color.blueValue < 0.4
@@ -184,7 +184,7 @@ extension ThemeColorViewController: ColorChoicesTileVCDelegate {
     func tileViewDidTapped(selectedView: UIView) {
         lastSelectedThemeColorView?.backgroundColor = selectedView.backgroundColor
         lastSelectedThemeColorView?.alpha = selectedView.alpha
-        setThemeSubViewColor(view: lastSelectedThemeColorView as! ThemeColorView)
+        setThemeSubViewColor(view: lastSelectedThemeColorView)
     }
     
 }
@@ -194,7 +194,7 @@ extension ThemeColorViewController: ColorChoicesSliderVCDelegate {
     func sliderValueDidChanged(view: UIView) {
         lastSelectedThemeColorView?.backgroundColor = view.backgroundColor
         lastSelectedThemeColorView?.alpha = view.alpha
-        setThemeSubViewColor(view: lastSelectedThemeColorView as! ThemeColorView)
+        setThemeSubViewColor(view: lastSelectedThemeColorView)
     }
     
 }
@@ -218,6 +218,9 @@ extension ThemeColorViewController: ColorChoicesConceptVCDelegate {
     }
     
     private func switchTheme(scheme: ColorSchemeType? = nil) {
+        if lastSelectedThemeColorView != nil {
+            setThemeSubViewColor(view: lastSelectedThemeColorView)
+        }
         switch scheme {
             case .main:
                 lastSelectedThemeColorView = subColorView
@@ -238,19 +241,17 @@ extension ThemeColorViewController: ColorChoicesConceptVCDelegate {
 extension ThemeColorViewController: ThemeColorViewDelegate {
     
     func themeColorViewDidTapped(nextSelectedView: UIView) {
-        guard lastSelectedThemeColorView != nil else { return }
         let isSameViewDidTapped = (lastSelectedThemeColorView == nextSelectedView)
         let _nextSelectedView = (nextSelectedView as! ThemeColorView)
-        let _lastSelectedThemeColorView = (lastSelectedThemeColorView as! ThemeColorView)
         if !isSameViewDidTapped {
             _nextSelectedView.hideImage(false)
-            _lastSelectedThemeColorView.hideImage(true)
+            lastSelectedThemeColorView?.hideImage(true)
             NotificationCenter.default.post(name: .themeColor,
                                             object: nil,
                                             userInfo: ["selectedView": nextSelectedView])
         }
-        setThemeSubViewColor(view: _nextSelectedView)
-        lastSelectedThemeColorView = nextSelectedView
+        setThemeSubViewColor(view: lastSelectedThemeColorView)
+        lastSelectedThemeColorView = _nextSelectedView
     }
     
 }
