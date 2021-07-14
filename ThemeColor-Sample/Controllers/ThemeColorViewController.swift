@@ -76,15 +76,7 @@ final class ThemeColorViewController: UIViewController {
         
         self.navigationItem.title = navTitle
         
-        mainColorView.delegate = self
-        subColorView.delegate = self
-        accentColorView.delegate = self
-        
-        setupImageView(view: mainColorView)
-        setupImageView(view: subColorView)
-        setupImageView(view: accentColorView)
-        mainColorView.hideImage(false)
-        lastSelectedThemeColorView = mainColorView
+        setupThemeColorView()
         
         switch containerType {
             case .concept:
@@ -109,17 +101,32 @@ final class ThemeColorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupThemeColorViewColor()
+        
+        NotificationCenter.default.post(name: .themeColor,
+                                        object: nil,
+                                        userInfo: ["selectedView": mainColorView!])
+        
+    }
+    
+    private func setupThemeColorView() {
+        mainColorView.delegate = self
+        subColorView.delegate = self
+        accentColorView.delegate = self
+        setupImageView(view: mainColorView)
+        setupImageView(view: subColorView)
+        setupImageView(view: accentColorView)
+        mainColorView.hideImage(false)
+        lastSelectedThemeColorView = mainColorView
+    }
+    
+    private func setupThemeColorViewColor() {
         mainColorView.backgroundColor = ThemeColor.main
         subColorView.backgroundColor = ThemeColor.sub
         accentColorView.backgroundColor = ThemeColor.accent
         setThemeSubViewColor(view: mainColorView)
         setThemeSubViewColor(view: subColorView)
         setThemeSubViewColor(view: accentColorView)
-        
-        NotificationCenter.default.post(name: .themeColor,
-                                        object: nil,
-                                        userInfo: ["selectedView": mainColorView!])
-        
     }
     
     private func setupImageView(view: ThemeColorView) {
