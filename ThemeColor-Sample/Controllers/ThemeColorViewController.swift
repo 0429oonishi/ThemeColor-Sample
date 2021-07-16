@@ -73,28 +73,10 @@ final class ThemeColorViewController: UIViewController {
         super.viewDidLoad()
         
         containerView.bringSubviewToFront(currentContainerView)
-        
         self.navigationItem.title = navTitle
-        
         setupThemeColorView()
-        
-        switch containerType {
-            case .concept:
-                segmentedControlBackView.isHidden = true
-                let colorChoicesConceptVC = self.children[0] as! ColorChoicesConceptViewController
-                colorChoicesConceptVC.colorConcept = colorConcept
-                colorChoicesConceptVC.delegate = self
-                mainColorView.isUserInteractionEnabled = false
-                subColorView.isUserInteractionEnabled = false
-                accentColorView.isUserInteractionEnabled = false
-                
-            case .tile, .slider:
-                let colorChoicesTileVC = self.children[1] as! ColorChoicesTileViewController
-                colorChoicesTileVC.delegate = self
-                
-                let colorChoicesSliderVC = self.children[2] as! ColorChoicesSliderViewController
-                colorChoicesSliderVC.delegate = self
-        }
+        setupSegmentedControl()
+        setupContainerViewControllers()
         
     }
     
@@ -102,22 +84,44 @@ final class ThemeColorViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setupThemeColorViewColor()
-        
         NotificationCenter.default.post(name: .themeColor,
                                         object: nil,
                                         userInfo: ["selectedView": mainColorView!])
         
     }
     
+    private func setupContainerViewControllers() {
+        let colorChoicesConceptVC = children[ContainerType.concept.rawValue] as! ColorChoicesConceptViewController
+        colorChoicesConceptVC.delegate = self
+        colorChoicesConceptVC.colorConcept = colorConcept
+        
+        let colorChoicesTileVC = children[ContainerType.tile.rawValue] as! ColorChoicesTileViewController
+        colorChoicesTileVC.delegate = self
+        
+        let colorChoicesSliderVC = children[ContainerType.slider.rawValue] as! ColorChoicesSliderViewController
+        colorChoicesSliderVC.delegate = self
+    }
+    
     private func setupThemeColorView() {
         mainColorView.delegate = self
         subColorView.delegate = self
         accentColorView.delegate = self
+        if containerType == .concept {
+            mainColorView.isUserInteractionEnabled = false
+            subColorView.isUserInteractionEnabled = false
+            accentColorView.isUserInteractionEnabled = false
+        }
         setupImageView(view: mainColorView)
         setupImageView(view: subColorView)
         setupImageView(view: accentColorView)
         mainColorView.hideImage(false)
         lastSelectedThemeColorView = mainColorView
+    }
+    
+    private func setupSegmentedControl() {
+        if containerType == .concept {
+            segmentedControlBackView.isHidden = true
+        }
     }
     
     private func setupThemeColorViewColor() {
