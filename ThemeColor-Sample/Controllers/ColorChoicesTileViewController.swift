@@ -145,9 +145,6 @@ extension ColorChoicesTileViewController: ThemeColorTileViewDelegate {
     
     func tileViewDidTapped(selectedView: UIView) {
         delegate?.tileViewDidTapped(selectedView: selectedView)
-        NotificationCenter.default.post(name: .themeColor,
-                                        object: nil,
-                                        userInfo: ["selectedView": selectedView])
         UIView.animate(withDuration: 0.1) {
             if self.selectedTileView != selectedView {
                 self.selectedTileView?.layer.cornerRadius = 0
