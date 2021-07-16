@@ -27,7 +27,8 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
         onTapEvent?()
     }
     
-    func configure(title: String, onTapEvent: @escaping () -> Void) {
+    func configure(title: String,
+                   onTapEvent: @escaping () -> Void) {
         self.onTapEvent = onTapEvent
         titleLabel.text = title
     }
