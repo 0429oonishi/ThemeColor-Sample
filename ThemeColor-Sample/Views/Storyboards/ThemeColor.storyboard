@@ -202,7 +202,7 @@
         <!--Color Choices Concept View Controller-->
         <scene sceneID="kV9-Z1-77b">
             <objects>
-                <viewController id="kYQ-97-zn6" customClass="ColorChoicesConceptViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorChoicesConceptViewController" id="kYQ-97-zn6" customClass="ColorChoicesConceptViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dN5-qp-4hh">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
         <!--Color Choices Tile View Controller-->
         <scene sceneID="Fd7-nJ-Ukf">
             <objects>
-                <viewController id="j3m-rS-3us" customClass="ColorChoicesTileViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorChoicesTileViewController" id="j3m-rS-3us" customClass="ColorChoicesTileViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UF6-7a-dsI">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -820,7 +820,7 @@
         <!--Color Choices Slider View Controller-->
         <scene sceneID="Mw7-G3-lCm">
             <objects>
-                <viewController id="3pu-4N-8m8" customClass="ColorChoicesSliderViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorChoicesSliderViewController" id="3pu-4N-8m8" customClass="ColorChoicesSliderViewController" customModule="ThemeColor_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QCv-zT-N8B">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
