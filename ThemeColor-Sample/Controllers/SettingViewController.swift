@@ -10,9 +10,9 @@ import UIKit
 final class SettingViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var subView: UIView!
-    @IBOutlet weak var accentView: UIView!
+    @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var subView: UIView!
+    @IBOutlet private weak var accentView: UIView!
     
     private struct Section {
         var title: String
@@ -40,9 +40,7 @@ final class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        mainView.backgroundColor = ThemeColor.main
-        subView.backgroundColor = ThemeColor.sub
-        accentView.backgroundColor = ThemeColor.accent
+        setupThemeColor()
         
     }
     
@@ -52,6 +50,12 @@ final class SettingViewController: UIViewController {
         tableView.registerCustomCell(AccordionTableViewCell.self)
         tableView.registerCustomCell(SectionHeaderView.self)
         tableView.tableFooterView = UIView()
+    }
+    
+    private func setupThemeColor() {
+        mainView.backgroundColor = ThemeColor.main
+        subView.backgroundColor = ThemeColor.sub
+        accentView.backgroundColor = ThemeColor.accent
     }
     
 }
@@ -86,8 +90,7 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
-        let title = sections[section].title
-        headerView.configure(title: title) { [weak self] in
+        headerView.configure(title: sections[section].title) { [weak self] in
             if self?.sections[section].title == "テーマカラー" {
                 self?.sections[section].expanded.toggle()
                 self?.tableView.beginUpdates()
