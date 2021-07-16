@@ -24,7 +24,8 @@ final class SettingViewController: UIViewController {
     }
     private struct Row {
         let title: String
-        static let data = [Row(title: "セルフ"),
+        static let data = [Row(title: "デフォルト"),
+                           Row(title: "セルフ"),
                            Row(title: "オススメ")]
     }
     private var sections = Section.data
@@ -65,6 +66,16 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         switch rows[indexPath.row].title {
+            case "デフォルト":
+                let alert = UIAlertController(title: "デフォルトカラーにしますか？", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "閉じる", style: .destructive, handler: nil))
+                alert.addAction(UIAlertAction(title: "する", style: .default) { _ in
+                    UserDefaults.standard.save(color: nil, .main)
+                    UserDefaults.standard.save(color: nil, .sub)
+                    UserDefaults.standard.save(color: nil, .accent)
+                    self.expand(section: indexPath.section)
+                })
+                present(alert, animated: true, completion: nil)
             case "セルフ":
                 let themeColorVC = ThemeColorViewController.instantiate(containerType: .tile,
                                                                         colorConcept: nil)
@@ -92,14 +103,18 @@ extension SettingViewController: UITableViewDelegate {
         let headerView = tableView.dequeueReusableCustomHeaderFooterView(with: SectionHeaderView.self)
         headerView.configure(title: sections[section].title) { [weak self] in
             if self?.sections[section].title == "テーマカラー" {
-                self?.sections[section].expanded.toggle()
-                self?.tableView.beginUpdates()
-                self?.tableView.reloadRows(at: [IndexPath(row: 0, section: section)],
-                                           with: .automatic)
-                self?.tableView.endUpdates()
+                self?.expand(section: section)
             }
         }
         return headerView
+    }
+    
+    private func expand(section: Int) {
+        sections[section].expanded.toggle()
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [IndexPath(row: 0, section: section)],
+                             with: .automatic)
+        tableView.endUpdates()
     }
     
 }

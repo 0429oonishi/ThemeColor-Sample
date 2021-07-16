@@ -42,8 +42,7 @@ extension UserDefaults {
     }
     
     func save(color: UIColor?, _ themeColorType: ThemeColorType) {
-        guard let color = color else { fatalError("color is nil") }
-        let colorData = try! NSKeyedArchiver.archivedData(withRootObject: color,
+        let colorData = try! NSKeyedArchiver.archivedData(withRootObject: color as Any,
                                                           requiringSecureCoding: false) as NSData?
         self.set(colorData, forKey: themeColorType.key)
     }
