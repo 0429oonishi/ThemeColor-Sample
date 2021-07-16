@@ -163,6 +163,11 @@ final class ThemeColorViewController: UIViewController {
     @IBAction private func segmentedControlDidSelected(_ sender: UISegmentedControl) {
         // enum ContainerTypeにあわせるために+1する。
         containerType = ContainerType(rawValue: sender.selectedSegmentIndex + 1)!
+        if containerType == .slider {
+            NotificationCenter.default.post(name: .themeColor,
+                                            object: nil,
+                                            userInfo: ["selectedView": lastSelectedThemeColorView!])
+        }
         containerView.bringSubviewToFront(currentContainerView)
     }
     
