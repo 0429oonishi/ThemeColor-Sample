@@ -15,7 +15,7 @@ protocol ColorChoicesConceptVCDelegate: AnyObject {
 final class ColorChoicesConceptViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-
+    
     var colorConcept: ColorConcept?
     private var titles: [String] {
         return colorConcept?.subConceptTitles ?? []
@@ -45,18 +45,18 @@ final class ColorChoicesConceptViewController: UIViewController {
         
     }
     
-    private func setupTableViewData() {
-        titles.forEach { title in
-            sections.append(Section(title: title, expanded: false))
-        }
-    }
-    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCustomCell(AccordionColorTableViewCell.self)
         tableView.registerCustomCell(SectionHeaderView.self)
         tableView.tableFooterView = UIView()
+    }
+    
+    private func setupTableViewData() {
+        titles.forEach { title in
+            sections.append(Section(title: title, expanded: false))
+        }
     }
     
 }
@@ -112,11 +112,11 @@ extension ColorChoicesConceptViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCustomCell(with: AccordionColorTableViewCell.self)
-        cell.selectionStyle = .none
         let colors = colors[indexPath.section]
         cell.configure(colors: colors) { view in
             self.delegate?.subConceptTileViewDidTapped(view: view)
         }
+        cell.selectionStyle = .none
         return cell
     }
     
