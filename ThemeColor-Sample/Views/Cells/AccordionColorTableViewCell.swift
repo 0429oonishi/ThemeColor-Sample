@@ -33,7 +33,8 @@ final class AccordionColorTableViewCell: UITableViewCell {
         
     }
     
-    func configure(colors: [UIColor], onTapEvent: @escaping ((UIView) -> Void)) {
+    func configure(colors: [UIColor],
+                   onTapEvent: @escaping ((UIView) -> Void)) {
         self.onTapEvent = onTapEvent
         leftTileView.backgroundColor = colors[0]
         centerTileView.backgroundColor = colors[1]
