@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB13ECD426B6B096002F56FF /* ThemeColorTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB13ECD326B6B096002F56FF /* ThemeColorTileView.swift */; };
 		AB526CD0268B5D5500DEC581 /* ColorConcept.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB526CCF268B5D5500DEC581 /* ColorConcept.storyboard */; };
 		AB526CD3268B5D7900DEC581 /* ThemeColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB526CD2268B5D7900DEC581 /* ThemeColor.storyboard */; };
 		AB526CD6268B63B100DEC581 /* ColorConceptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB526CD4268B63B100DEC581 /* ColorConceptTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB13ECD326B6B096002F56FF /* ThemeColorTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorTileView.swift; sourceTree = "<group>"; };
 		AB526CCF268B5D5500DEC581 /* ColorConcept.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorConcept.storyboard; sourceTree = "<group>"; };
 		AB526CD2268B5D7900DEC581 /* ThemeColor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemeColor.storyboard; sourceTree = "<group>"; };
 		AB526CD4268B63B100DEC581 /* ColorConceptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConceptTableViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		ABF935452689E3FD00A3F933 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB13ECD326B6B096002F56FF /* ThemeColorTileView.swift */,
 				AB526CD1268B5D5C00DEC581 /* Storyboards */,
 				AB526D13268CE5AA00DEC581 /* Cells */,
 			);
@@ -314,6 +317,7 @@
 				ABD819CD269B565400E7D135 /* NotificationName+Extension.swift in Sources */,
 				AB526D22268EDE0300DEC581 /* OverseasConcept.swift in Sources */,
 				ABF9354D268A06EC00A3F933 /* SectionHeaderView.swift in Sources */,
+				AB13ECD426B6B096002F56FF /* ThemeColorTileView.swift in Sources */,
 				AB526D2C2690377400DEC581 /* UICollectionViewCell+Extension.swift in Sources */,
 				AB526D242690342900DEC581 /* ServiceConcept.swift in Sources */,
 				ABF935412689E35500A3F933 /* UIColor+Extension.swift in Sources */,

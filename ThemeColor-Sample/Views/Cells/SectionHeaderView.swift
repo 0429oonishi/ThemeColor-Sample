@@ -33,5 +33,4 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
         titleLabel.text = title
     }
     
-    
 }

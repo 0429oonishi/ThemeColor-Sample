@@ -50,7 +50,6 @@ final class SettingViewController: UIViewController {
         tableView.dataSource = self
         tableView.registerCustomCell(AccordionTableViewCell.self)
         tableView.registerCustomCell(SectionHeaderView.self)
-        tableView.tableFooterView = UIView()
     }
     
     private func setupThemeColor() {

@@ -32,7 +32,7 @@ final class ColorConceptViewController: UIViewController {
             name: "ColorConcept",
             bundle: nil
         ).instantiateViewController(
-            withIdentifier: ColorConceptViewController.identifier
+            withIdentifier: String(describing: self)
         ) as! ColorConceptViewController
         return colorConceptVC
     }
@@ -41,13 +41,15 @@ final class ColorConceptViewController: UIViewController {
 
 extension ColorConceptViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         let themeColorVC = ThemeColorViewController.instantiate(containerType: .concept,
                                                                 colorConcept: colorConcepts[indexPath.row])
         self.navigationController?.pushViewController(themeColorVC, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
@@ -55,11 +57,13 @@ extension ColorConceptViewController: UITableViewDelegate {
 
 extension ColorConceptViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return colorConcepts.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCustomCell(with: ColorConceptTableViewCell.self)
         let title = colorConcepts[indexPath.row].title
         cell.configure(title: title)
